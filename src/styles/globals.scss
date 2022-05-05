@@ -1,0 +1,132 @@
+html,
+body,
+main {
+  padding: 0;
+  margin: 0;
+  font-family: var(--dmsans);
+  -webkit-font-smoothing: antialiased;
+  max-width: 100%;
+  width: 100vw;
+}
+
+:root {
+  --dmsans: 'DM Sans', sans-serif;
+  --josefin: 'Josefin Sans', sans-serif;
+  --roboto: 'Roboto', sans-serif;
+  --opensans: 'Open Sans', sans-serif;
+  --poppins: 'Poppins', sans-serif;
+  --swiper-theme-color: #fff;
+  --background: #f0f2f5;
+  --white: #ffffff;
+  --gray-100: #e3e4e5;
+  --gray-200: #e1e1e6;
+  --gray-300: #a8a8b3;
+  --gray-800: #29292e;
+  --gray-850: #1f2729;
+  --gray-900: #121214;
+  --link: #61dafb;
+  --blue: #14245a;
+  --dark-blue: #0e1418;
+  --red-500: #e8374b;
+  --yellow-500: #eba417;
+  --box-shadow:  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+  0 12.5px 10px rgba(0, 0, 0, 0.06),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.020);
+  --facebook: #4267B2;
+  --instagram: #DD2A7B;
+  --twitter: #1DA1F2;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+}
+
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+button {
+  all: unset;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s;
+  padding: 0;
+  margin: 0;
+
+  &:hover {
+    color: var(--red-500);
+  }
+}
+
+
+
+// swiper styles
+.swiper-container {
+  text-align: center;
+  overflow-x: hidden;
+  position: relative;
+  
+  img {
+    width: 100%;
+    
+  }
+}
+
+.swiper-wrapper {
+  max-width: fit-content;
+}
+
+.swiper-button-next {
+  display: block;
+  &:hover {
+    color: var(--red-500);
+  }
+}
+
+.swiper-button-prev{
+  display: block;
+
+  &:hover {
+    color: var(--red-500);
+    
+  }
+}
+
+div.swiper-pagination {
+  position: absolute;
+  display: flex;
+  margin: 0 auto;
+  width: 100%;
+  gap: .8rem;
+  left: 50%;
+  bottom: 5%;
+}
+
+.swiper-pagination-bullet {
+  padding: .3rem;
+}
+
+@media (max-width: 1000px) {
+  .swiper-button-prev, .swiper-button-next {
+    top: 60%;
+    height: auto;
+    &::after {
+      font-size: 15px;
+    }
+  }
+
+  .swiper-pagination-bullet {
+    padding: .15rem;
+  }
+}

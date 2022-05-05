@@ -1,0 +1,38 @@
+.gridItem {
+  margin: auto;
+  box-shadow:var(--box-shadow);
+  padding: 1rem;
+  transition: transform 0.3s ease 0s, box-shadow .4s;
+  text-align: left;
+
+  a {
+    all: unset;
+    cursor: pointer;
+  }
+
+  &:hover {
+    transform: scale(1.009); 
+    box-shadow: var(--box-shadow);
+  }
+
+  .contentTop {
+    margin: .5rem 0;
+  }
+
+  .infoGrid {
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    span {
+      margin: .1rem 0  0 0;
+      line-height: 2rem;
+    }
+  }
+
+  .contentBottom {
+    margin: .5rem 0;
+  }
+}
+
+

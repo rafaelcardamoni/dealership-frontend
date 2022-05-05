@@ -1,0 +1,11 @@
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  white-space: nowrap;
+  
+  span {
+    margin-left: .3rem;
+  }
+}

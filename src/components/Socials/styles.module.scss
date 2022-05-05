@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  color: var(--white);
+  gap: 1rem;
+
+  i {
+    cursor: pointer;
+    font-size: 1.5rem;
+  }
+
+  .facebook {
+    transition: color .2s;
+    &:hover {
+      color: var(--facebook);
+    }
+  }
+
+  .instagram {
+    transition: color .2s;
+    &:hover {
+      color: var(--instagram);
+    }
+  }
+
+  .twitter {
+    transition: color .2s;
+    &:hover {
+      color: var(--twitter);
+    }
+  }
+
+  .youtube {
+    transition: color .2s;
+    &:hover {
+      color: red;
+    }
+  }
+}

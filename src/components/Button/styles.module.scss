@@ -1,0 +1,16 @@
+.button {
+  width: fit-content;
+  background-color: var(--dark-blue);
+  color: var(--white);
+  padding: 1rem;
+  transition: .15s;
+
+  i {
+    font-size: 1.2rem;
+  }
+
+  &:hover {
+    background-color: var(--red-500);
+    filter: brightness(.9);
+  }
+}
