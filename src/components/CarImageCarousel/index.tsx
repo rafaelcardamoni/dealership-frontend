@@ -24,7 +24,6 @@ export function CarImageCarousel({ images }: ImageProps) {
         spaceBetween={10}
         thumbs={{ swiper: thumbsSwiper }}
         className={styles.mainImg}
-        loop={false}
       >
         {images.map(image => {
           return (
@@ -38,7 +37,6 @@ export function CarImageCarousel({ images }: ImageProps) {
         onSwiper={setThumbsSwiper}
         spaceBetween={10}
         slidesPerView={3}
-        watchSlidesProgress={true}
         thumbs={{ swiper: thumbsSwiper }}
         className={styles.thumbnail}
       >
