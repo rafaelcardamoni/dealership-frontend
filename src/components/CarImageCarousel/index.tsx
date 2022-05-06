@@ -1,10 +1,5 @@
-import { useState } from 'react';
-import SwiperCore, { Thumbs } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import styles from './styles.module.scss';
-
-// install Swiper modules
-SwiperCore.use([Thumbs]);
 
 interface ImageProps {
   images: [
@@ -16,8 +11,6 @@ interface ImageProps {
 }
 
 export function CarImageCarousel({ images }: ImageProps) {
-  const [thumbsSwiper, setThumbsSwiper] = useState(null);
-
   return (
     <>
       <Swiper spaceBetween={10} className={styles.mainImg}>
