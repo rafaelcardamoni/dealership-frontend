@@ -1,8 +1,17 @@
 import axios from 'axios';
 import { GetStaticPaths, GetStaticProps } from 'next';
+import { CarsCardSmall } from '../../components/CarsCardSmall';
 
-export default function CarDetails() {
-  return <h1>hello world</h1>;
+export default function CarDetails({ data }) {
+  console.log(data);
+
+  return (
+    <>
+      {data.map(car => {
+        return <h1>{`${car.make} ${car.model}`}</h1>;
+      })}
+    </>
+  );
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
