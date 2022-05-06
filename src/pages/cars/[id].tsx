@@ -3,8 +3,6 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import { CarsCardSmall } from '../../components/CarsCardSmall';
 
 export default function CarDetails({ data }) {
-  console.log(data);
-
   return (
     <>
       {data.map(car => {
