@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { CarsCardSmall } from '../../components/CarsCardSmall';
 
 export default function CarDetails({ data }) {
   return (
