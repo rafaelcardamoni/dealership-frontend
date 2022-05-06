@@ -20,12 +20,7 @@ export function CarImageCarousel({ images }: ImageProps) {
 
   return (
     <>
-      <Swiper
-        spaceBetween={10}
-        thumbs={{ swiper: thumbsSwiper }}
-        className={styles.mainImg}
-        loop={false}
-      >
+      <Swiper spaceBetween={10} className={styles.mainImg}>
         {images.map(image => {
           return (
             <SwiperSlide key={image.id}>
@@ -34,14 +29,7 @@ export function CarImageCarousel({ images }: ImageProps) {
           );
         })}
       </Swiper>
-      <Swiper
-        onSwiper={setThumbsSwiper}
-        spaceBetween={10}
-        slidesPerView={3}
-        watchSlidesProgress={true}
-        thumbs={{ swiper: thumbsSwiper }}
-        className={styles.thumbnail}
-      >
+      <Swiper spaceBetween={10} slidesPerView={3} className={styles.thumbnail}>
         {images.map(image => {
           return (
             <SwiperSlide key={image.id}>
