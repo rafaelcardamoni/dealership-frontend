@@ -47,11 +47,11 @@ export default function Home({ data }) {
         </section>
 
         <section className={styles.hero}>
-          {/* <div className={styles.grid}>
+          <div className={styles.grid}>
             {cars.map(car => {
               return <CarsCardSmall key={car.id} car={car} />;
             })}
-          </div> */}
+          </div>
 
           <Link href="/inventory">
             <a>
@@ -64,15 +64,15 @@ export default function Home({ data }) {
   );
 }
 
-// export const getStaticProps: GetStaticProps = async () => {
-//   const data = await axios
-//     .get(`${process.env.BASE_URL}/api/cars/4`)
-//     .then(response => response.data);
+export const getStaticProps: GetStaticProps = async () => {
+  const data = await axios
+    .get(`${process.env.BASE_URL}/api/cars/4`)
+    .then(response => response.data);
 
-//   return {
-//     props: {
-//       data
-//     },
-//     revalidate: 86400 // 24 hours in seconds
-//   };
-// };
+  return {
+    props: {
+      data
+    },
+    revalidate: 86400 // 24 hours in seconds
+  };
+};
