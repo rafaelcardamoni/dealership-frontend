@@ -8,7 +8,7 @@ export default function CarDetails({ data }) {
   return (
     <>
       {data.map(car => {
-        return <h1>{`${car.make} ${car.model}`}</h1>;
+        return <h1 key={car.id}>{`${car.make} ${car.model}`}</h1>;
       })}
     </>
   );
