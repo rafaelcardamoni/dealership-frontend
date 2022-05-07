@@ -12,7 +12,7 @@
   text-align: left;
 
   input {
-    width: 500px;
+    width: 25rem;
     padding: 1rem;
     margin-left: 1.5rem;
     background-color: var(--white);
@@ -48,12 +48,4 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(var(--auto-grid-min-size), 1fr));
   gap: 1rem;
-}
-
-@media (min-width: 1016px) and (max-width: 1456px) {
-  .grid {
-    div:last-child {
-      grid-column: span 3;
-    }
-  }
 }
