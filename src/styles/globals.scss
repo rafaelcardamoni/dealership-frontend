@@ -32,7 +32,8 @@ main {
   --box-shadow:  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
   0 6.7px 5.3px rgba(0, 0, 0, 0.048),
   0 12.5px 10px rgba(0, 0, 0, 0.06),
-  0 22.3px 17.9px rgba(0, 0, 0, 0.020);
+  0 22.3px 17.9px rgba(0, 0, 0, 0.010);
+  --border-light: 1px solid rgb(227, 228, 229);
   --facebook: #4267B2;
   --instagram: #DD2A7B;
   --twitter: #1DA1F2;
@@ -53,7 +54,11 @@ ul, li {
   list-style: none;
 }
 
+<<<<<<< HEAD
 button, input {
+=======
+button, input[type=text] {
+>>>>>>> testing
   all: unset;
 }
 

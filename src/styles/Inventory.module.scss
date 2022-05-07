@@ -1,0 +1,59 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas: "filter search search search"
+                      "filter card card card";
+}
+
+.search {
+  grid-area: search;
+  margin: 1.5rem auto;
+  width: 100%;
+  text-align: left;
+
+  input {
+    width: 500px;
+    padding: 1rem;
+    margin-left: 1.5rem;
+    background-color: var(--white);
+    color: var(--black);
+    text-align: left;
+    border: var(--border-light)
+  }
+}
+
+.filters {
+  grid-area: filter;
+
+  .filtersContainer {
+    margin: 1.5rem auto;
+    width: 80%;
+    padding: 1rem;
+    border: var(--border-light);
+  }
+}
+
+.cards {
+  grid-area: card;
+  margin: 3rem 0;
+  text-align: center;
+
+  button {
+    margin-top: 3rem;
+  }
+}
+
+.grid {
+  --auto-grid-min-size: 22rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--auto-grid-min-size), 1fr));
+  gap: 1rem;
+}
+
+@media (min-width: 1016px) and (max-width: 1456px) {
+  .grid {
+    div:last-child {
+      grid-column: span 3;
+    }
+  }
+}
