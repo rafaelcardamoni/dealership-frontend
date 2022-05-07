@@ -83,6 +83,7 @@ export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       cars
-    }
+    },
+    revalidate: 60 * 5 // 5 minutes in seconds
   };
 };
