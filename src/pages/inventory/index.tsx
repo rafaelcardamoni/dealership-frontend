@@ -7,6 +7,11 @@ import styles from '../../styles/Inventory.module.scss';
 
 export default function Inventory({ cars }) {
   const [searchTerm, setSearchTerm] = useState('');
+  const [checkboxFilter, setCheckboxFilter] = useState('');
+
+  function handleCheckboxFilter(filter) {
+    setCheckboxFilter(filter);
+  }
 
   return (
     <div className={styles.container}>
@@ -15,14 +20,14 @@ export default function Inventory({ cars }) {
           type="text"
           placeholder="Pesquise por termo, modelo, marca..."
           onChange={event => {
-            setSearchTerm(event.target.value);
+            setSearchTerm(event.target.value.toLowerCase());
           }}
         />
       </section>
 
       <section className={styles.filters}>
         <div className={styles.filtersContainer}>
-          <SearchFilters />
+          <SearchFilters handleCheckboxFilter={handleCheckboxFilter} />
         </div>
       </section>
 
@@ -30,15 +35,33 @@ export default function Inventory({ cars }) {
         <div className={styles.grid}>
           {cars
             .filter(car => {
-              if (searchTerm === '') {
+              if (checkboxFilter === '' && searchTerm === '') {
                 return car;
+              }
+              if (checkboxFilter && searchTerm !== '') {
+                if (
+                  car.make.includes(checkboxFilter) &&
+                  (car.make.toLowerCase().includes(searchTerm) ||
+                    car.model.toLowerCase().includes(searchTerm) ||
+                    car.trim.toLowerCase().includes(searchTerm) ||
+                    car.year.toLowerCase().includes(searchTerm) ||
+                    car.type.toLowerCase().includes(searchTerm) ||
+                    car.color.toLowerCase().includes(searchTerm))
+                ) {
+                  return car;
+                }
+              } else if (checkboxFilter !== '') {
+                if (car.make.includes(checkboxFilter)) {
+                  return car;
+                }
               } else if (
-                car.make.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                car.model.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                car.trim.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                car.year.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                car.type.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                car.color.toLowerCase().includes(searchTerm.toLowerCase())
+                searchTerm !== '' &&
+                (car.make.toLowerCase().includes(searchTerm) ||
+                  car.model.toLowerCase().includes(searchTerm) ||
+                  car.trim.toLowerCase().includes(searchTerm) ||
+                  car.year.toLowerCase().includes(searchTerm) ||
+                  car.type.toLowerCase().includes(searchTerm) ||
+                  car.color.toLowerCase().includes(searchTerm))
               ) {
                 return car;
               }

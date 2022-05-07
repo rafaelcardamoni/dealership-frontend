@@ -4,6 +4,7 @@
   padding: 1rem;
   transition: transform 0.3s ease 0s, box-shadow .4s;
   text-align: left;
+  border: var(--border-light);
 
   a {
     all: unset;
