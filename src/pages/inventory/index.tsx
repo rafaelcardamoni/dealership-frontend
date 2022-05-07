@@ -1,10 +1,8 @@
 import axios from 'axios';
 import { GetStaticProps } from 'next';
-<<<<<<< HEAD
 import { useContext, useState } from 'react';
 import { CarsCardSmall } from '../../components/CarsCardSmall';
 import { CarsContext } from '../../contexts/CarsContext';
-import styles from './styles.module.scss';
 
 interface CarProps {
   id: string;
@@ -29,24 +27,23 @@ interface CarProps {
     }
   ];
 }
-=======
-import { useState } from 'react';
-import { CarsCardSmall } from '../../components/CarsCardSmall';
+
 import { SearchFilters } from '../../components/SearchFilters';
 import styles from '../../styles/Inventory.module.scss';
->>>>>>> testing
+
 
 export default function Inventory({ cars }) {
   const [searchTerm, setSearchTerm] = useState('');
 
   return (
-<<<<<<< HEAD
-    <>
+    <div>
       <section className={styles.filter}>
-=======
+
     <div className={styles.container}>
       <section className={styles.search}>
->>>>>>> testing
+
+    <div className={styles.container}>
+      <section className={styles.search}>
         <input
           type="text"
           placeholder="Pesquise por termo, modelo, marca..."
@@ -56,9 +53,9 @@ export default function Inventory({ cars }) {
         />
       </section>
 
-<<<<<<< HEAD
+
       <section className={styles.hero}>
-=======
+
       <section className={styles.filters}>
         <div className={styles.filtersContainer}>
           <SearchFilters />
@@ -66,7 +63,7 @@ export default function Inventory({ cars }) {
       </section>
 
       <section className={styles.cards}>
->>>>>>> testing
+
         <div className={styles.grid}>
           {cars
             .filter(car => {
@@ -88,11 +85,9 @@ export default function Inventory({ cars }) {
             })}
         </div>
       </section>
-<<<<<<< HEAD
-    </>
-=======
     </div>
->>>>>>> testing
+
+    </div>
   );
 }
 
