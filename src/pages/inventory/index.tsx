@@ -16,13 +16,15 @@ export default function Inventory({ cars }) {
   return (
     <div className={styles.container}>
       <section className={styles.search}>
-        <input
-          type="text"
-          placeholder="Pesquise por termo, modelo, marca..."
-          onChange={event => {
-            setSearchTerm(event.target.value.toLowerCase());
-          }}
-        />
+        <div className={styles.searchbarContainer}>
+          <input
+            type="text"
+            placeholder="Pesquise por termo, modelo, marca..."
+            onChange={event => {
+              setSearchTerm(event.target.value.toLowerCase());
+            }}
+          />
+        </div>
       </section>
 
       <section className={styles.filters}>

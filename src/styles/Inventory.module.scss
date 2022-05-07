@@ -3,6 +3,7 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-areas: "filter search search search"
                       "filter card card card";
+  font-weight: 500;
 }
 
 .search {
@@ -24,6 +25,10 @@
 
 .filters {
   grid-area: filter;
+  position: relative;
+  left: 0;
+  display: block;
+  float: left;
 
   .filtersContainer {
     margin: 1.5rem auto;
@@ -48,4 +53,49 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(var(--auto-grid-min-size), 1fr));
   gap: 1rem;
+}
+
+@media (max-width: 1050px) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "search search search"
+                        "filter filter filter"
+                        "card card card";
+  }
+
+    
+  .search {
+    width: 100vw;    
+    margin: 1rem auto;
+
+    .searchbarContainer {
+      width: 90%;
+      margin: 1rem 1.5rem;
+
+      input {
+        width: inherit;
+        margin: 0;
+      }
+    }
+  }
+
+  .filters {
+    width: 100vw;
+    margin: 1rem auto;
+
+    .filtersContainer {
+      margin: 1rem 1.5rem;
+      width: 85%;
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .search {
+    .searchbarContainer {
+      width: 88%;
+
+   }
+  }
 }

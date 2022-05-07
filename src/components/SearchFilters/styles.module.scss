@@ -27,3 +27,18 @@
   }
 
 }
+
+@media (max-width: 1050px) {
+  .container {
+    width: inherit;
+
+    .slot {
+      width: inherit;
+
+      input {
+        width: inherit;
+        margin: 0;
+      }
+    }
+  }
+}
