@@ -2,12 +2,17 @@ import axios from 'axios';
 import { GetStaticProps } from 'next';
 import { useState } from 'react';
 import { CarsCardSmall } from '../../components/CarsCardSmall';
+import { SearchBar } from '../../components/SearchBar';
 import { SearchFilters } from '../../components/SearchFilters';
 import styles from '../../styles/Inventory.module.scss';
 
 export default function Inventory({ cars }) {
   const [searchTerm, setSearchTerm] = useState('');
   const [checkboxFilter, setCheckboxFilter] = useState('');
+
+  function handleSearchTerm(text) {
+    setSearchTerm(text);
+  }
 
   function handleCheckboxFilter(filter) {
     setCheckboxFilter(filter);
@@ -17,13 +22,7 @@ export default function Inventory({ cars }) {
     <div className={styles.container}>
       <section className={styles.search}>
         <div className={styles.searchbarContainer}>
-          <input
-            type="text"
-            placeholder="Pesquise por termo, modelo, marca..."
-            onChange={event => {
-              setSearchTerm(event.target.value.toLowerCase());
-            }}
-          />
+          <SearchBar handleSearchTerm={handleSearchTerm} />
         </div>
       </section>
 
@@ -42,13 +41,16 @@ export default function Inventory({ cars }) {
               }
               if (checkboxFilter && searchTerm !== '') {
                 if (
-                  car.make.includes(checkboxFilter) &&
-                  (car.make.toLowerCase().includes(searchTerm) ||
-                    car.model.toLowerCase().includes(searchTerm) ||
-                    car.trim.toLowerCase().includes(searchTerm) ||
-                    car.year.toLowerCase().includes(searchTerm) ||
-                    car.type.toLowerCase().includes(searchTerm) ||
-                    car.color.toLowerCase().includes(searchTerm))
+                  (car.make.includes(checkboxFilter) &&
+                    (car.make.toLowerCase().includes(searchTerm) ||
+                      car.model.toLowerCase().includes(searchTerm) ||
+                      car.trim.toLowerCase().includes(searchTerm) ||
+                      car.year.includes(searchTerm) ||
+                      car.type.toLowerCase().includes(searchTerm) ||
+                      car.color.toLowerCase().includes(searchTerm))) ||
+                  `${car.make.toLowerCase()} ${car.model.toLowerCase()} ${car.trim.toLowerCase()}`.includes(
+                    searchTerm
+                  )
                 ) {
                   return car;
                 }
@@ -57,13 +59,16 @@ export default function Inventory({ cars }) {
                   return car;
                 }
               } else if (
-                searchTerm !== '' &&
-                (car.make.toLowerCase().includes(searchTerm) ||
-                  car.model.toLowerCase().includes(searchTerm) ||
-                  car.trim.toLowerCase().includes(searchTerm) ||
-                  car.year.toLowerCase().includes(searchTerm) ||
-                  car.type.toLowerCase().includes(searchTerm) ||
-                  car.color.toLowerCase().includes(searchTerm))
+                (searchTerm !== '' &&
+                  (car.make.toLowerCase().includes(searchTerm) ||
+                    car.model.toLowerCase().includes(searchTerm) ||
+                    car.trim.toLowerCase().includes(searchTerm) ||
+                    car.year.toLowerCase().includes(searchTerm) ||
+                    car.type.toLowerCase().includes(searchTerm) ||
+                    car.color.toLowerCase().includes(searchTerm))) ||
+                `${car.make.toLowerCase()} ${car.model.toLowerCase()} ${car.trim.toLowerCase()}`.includes(
+                  searchTerm
+                )
               ) {
                 return car;
               }

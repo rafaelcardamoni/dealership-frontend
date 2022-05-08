@@ -1,0 +1,24 @@
+
+.inputWrapper {
+  position: relative;
+  display: inline-block;
+  width: inherit;
+
+  input {
+    width: 25rem;
+    padding: 1rem;
+    margin-left: 1.5rem;
+    background-color: var(--white);
+    color: var(--black);
+    text-align: left;
+    border: var(--border-light)
+  }
+}
+@media (max-width: 1050px) {
+  .inputWrapper {
+    input {
+      width: 89%;
+      margin: 0;
+    }
+  }
+}

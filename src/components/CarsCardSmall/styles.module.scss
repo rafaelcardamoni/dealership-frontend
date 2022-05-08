@@ -3,7 +3,9 @@
   box-shadow:var(--box-shadow);
   padding: 1rem;
   transition: transform 0.3s ease 0s, box-shadow .4s;
+  font-family: var(--dmsans);
   text-align: left;
+
   border: var(--border-light);
 
   a {

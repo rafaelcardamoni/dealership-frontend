@@ -11,16 +11,6 @@
   margin: 1.5rem auto;
   width: 100%;
   text-align: left;
-
-  input {
-    width: 25rem;
-    padding: 1rem;
-    margin-left: 1.5rem;
-    background-color: var(--white);
-    color: var(--black);
-    text-align: left;
-    border: var(--border-light)
-  }
 }
 
 .filters {
@@ -58,25 +48,19 @@
 @media (max-width: 1050px) {
   .container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(min(400px,80vw), 1fr));
     grid-template-areas: "search search search"
                         "filter filter filter"
                         "card card card";
   }
 
-    
   .search {
     width: 100vw;    
     margin: 1rem auto;
 
     .searchbarContainer {
-      width: 90%;
+      width: 96%;
       margin: 1rem 1.5rem;
-
-      input {
-        width: inherit;
-        margin: 0;
-      }
     }
   }
 
@@ -86,16 +70,23 @@
 
     .filtersContainer {
       margin: 1rem 1.5rem;
-      width: 85%;
+      width: 86%;
     }
   }
 }
 
 @media (max-width: 800px) {
-  .search {
-    .searchbarContainer {
-      width: 88%;
+  .filters {
+    .filtersContainer {
+      width: 87%;
+    }
+  }
+}
 
-   }
+@media (max-width: 650px) {
+  .filters {
+    .filtersContainer {
+      width: 88.5%;
+    }
   }
 }

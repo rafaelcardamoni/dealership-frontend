@@ -3,22 +3,22 @@ body,
 main {
   padding: 0;
   margin: 0;
-  font-family: var(--dmsans);
+  font-family: var(--poppins);
   -webkit-font-smoothing: antialiased;
+  font-weight: 600;
   max-width: 100%;
   width: 100vw;
 }
 
 :root {
   --dmsans: 'DM Sans', sans-serif;
-  --josefin: 'Josefin Sans', sans-serif;
   --roboto: 'Roboto', sans-serif;
-  --opensans: 'Open Sans', sans-serif;
   --poppins: 'Poppins', sans-serif;
   --swiper-theme-color: #fff;
   --background: #f0f2f5;
   --white: #ffffff;
   --off-white: #f2f2f2;
+  --dark-gray: rgba(4, 17, 29, 0.75);
   --gray-100: #e3e4e5;
   --gray-200: #e1e1e6;
   --gray-300: #a8a8b3;
