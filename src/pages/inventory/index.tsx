@@ -29,7 +29,10 @@ export default function Inventory({ cars }) {
       <section className={styles.filters}>
         <div className={styles.filtersContainer}>
           <h3>Filtrar por</h3>
-          <SearchFilters handleCheckboxFilter={handleCheckboxFilter} />
+          <SearchFilters
+            handleCheckboxFilter={handleCheckboxFilter}
+            handleSearchTerm={handleSearchTerm}
+          />
         </div>
       </section>
 

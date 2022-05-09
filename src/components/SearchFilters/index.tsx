@@ -4,9 +4,13 @@ import styles from './styles.module.scss';
 
 interface SearchFilterProps {
   handleCheckboxFilter: (filter: string) => void;
+  handleSearchTerm: (text: string) => void;
 }
 
-export function SearchFilters({ handleCheckboxFilter }: SearchFilterProps) {
+export function SearchFilters({
+  handleCheckboxFilter,
+  handleSearchTerm
+}: SearchFilterProps) {
   const cars = useContext(CarsContext);
   const uniqueMakes = [...new Set(cars.map(car => car.make))];
 
@@ -30,6 +34,15 @@ export function SearchFilters({ handleCheckboxFilter }: SearchFilterProps) {
   return (
     <div className={styles.container}>
       <h4>Marcas</h4>
+
+      <button
+        onClick={() => {
+          handleCheckboxFilter('');
+          handleSearchTerm('');
+        }}
+      >
+        Resetar filtros
+      </button>
       {uniqueMakes.map(make => {
         return (
           <slot key={make} className={styles.slot}>
