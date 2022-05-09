@@ -1,37 +1,39 @@
 .container {
   width: 370px;
- 
 
   .slot {
     display: block;
     width: 100%;
-    margin-bottom: .5rem;
+    margin: .5rem auto;
    
-    input[type=checkbox] {
-      float: left;
-      line-height: 1.5rem;
-      height: 1.5rem;
-      width: 1.5rem;
-      margin: auto;
-      padding: 0px;
-      background-color: var(--white);
-      border-radius: 0px;
-      border: var(border-light);
+    input[type=radio] {
+      height: 1rem;
+      width: 1rem;
+      line-height: 1rem;
+      box-sizing: border-box;
+      appearance: none;
+      outline: 2px solid var(--dark-gray);
+      border: 2px solid var(--white);
+      margin: -.15rem auto;
+      transition: .15s ease-in;
+
+      &:checked {
+        background: var(--dark-gray);
+      }
+
     }
   
     label {
+      font-size: 15px;
       margin-left: .5rem;
-      line-height: 1.5rem;
+      line-height: 1rem;
     }
-
   }
 
 }
 
 @media (max-width: 1050px) {
   .container {
-    width: inherit;
-
     .slot {
       width: inherit;
 

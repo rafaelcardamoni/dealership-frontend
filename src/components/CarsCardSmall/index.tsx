@@ -4,6 +4,7 @@ import { BsSpeedometer2 } from 'react-icons/bs';
 import { GiGearStick } from 'react-icons/gi';
 import { BiCalendar } from 'react-icons/bi';
 import { VscGear } from 'react-icons/vsc';
+import comingSoon from '../../../public/coming-soon.svg';
 import Link from 'next/link';
 
 interface CardProps {
