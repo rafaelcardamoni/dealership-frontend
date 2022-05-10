@@ -1,17 +1,19 @@
 .mainImg {
   width: 18rem;
   height: auto;
-
+  
   img {
-    height: auto;
-    width: inherit;
+    object-fit: contain;
+    height: 250px;
+    width: 100%;
   }
 }
 
 .thumbnail {
   width: 18rem;
   img {
-    height: auto;
+    object-fit: contain;
+    min-height: 72.5px;
     width: 6rem;
   }
 }

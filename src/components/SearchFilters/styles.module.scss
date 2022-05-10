@@ -30,6 +30,15 @@
     }
   }
 
+  .separator {
+    display: flex;
+    margin: 1rem auto;
+    content: '';
+    height: 1px;
+    width: 95%;
+    background-color: var(--gray-100);
+  }
+
 }
 
 @media (max-width: 1050px) {

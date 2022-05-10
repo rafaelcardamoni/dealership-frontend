@@ -5,6 +5,8 @@
   transition: transform 0.3s ease 0s, box-shadow .4s;
   font-family: var(--dmsans);
   text-align: left;
+  min-height: 520px;
+  min-width: 325px;
 
   border: var(--border-light);
 

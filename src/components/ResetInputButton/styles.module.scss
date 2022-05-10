@@ -1,0 +1,9 @@
+.resetButton {
+  display: flex;
+  align-items: center;
+  background-color: var(--white);
+  color: var(--dark-blue);
+  cursor: pointer;
+  gap: .3rem;
+  margin: 1rem 0;
+}

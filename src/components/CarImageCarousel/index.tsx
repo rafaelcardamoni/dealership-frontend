@@ -12,7 +12,7 @@ interface ImageProps {
 
 export function CarImageCarousel({ images }: ImageProps) {
   return (
-    <>
+    <div className={styles.container}>
       <Swiper spaceBetween={10} className={styles.mainImg}>
         {images.map(image => {
           return (
@@ -31,6 +31,6 @@ export function CarImageCarousel({ images }: ImageProps) {
           );
         })}
       </Swiper>
-    </>
+    </div>
   );
 }

@@ -1,3 +1,6 @@
+import styles from './styles.module.scss';
+import { RiRestartLine } from 'react-icons/ri';
+
 interface ResetInputButtonProps {
   handleCheckboxFilter: (filter: string) => void;
   handleSearchTerm: (text: string) => void;
@@ -24,13 +27,15 @@ export function ResetInputButton({
   return (
     <>
       <button
+        className={styles.resetButton}
         onClick={() => {
           handleCheckboxFilter('');
           handleSearchTerm('');
           clearFilterInputs();
         }}
       >
-        Resetar filtros
+        <RiRestartLine />
+        <span>Resetar filtros</span>
       </button>
     </>
   );

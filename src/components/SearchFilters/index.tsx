@@ -27,10 +27,6 @@ export function SearchFilters({
     <div className={styles.container}>
       <h4>Marcas</h4>
 
-      <ResetInputButton
-        handleCheckboxFilter={handleCheckboxFilter}
-        handleSearchTerm={handleSearchTerm}
-      />
       {uniqueMakes.map(make => {
         return (
           <slot key={make} className={styles.slot}>
@@ -50,6 +46,11 @@ export function SearchFilters({
           </slot>
         );
       })}
+
+      <ResetInputButton
+        handleCheckboxFilter={handleCheckboxFilter}
+        handleSearchTerm={handleSearchTerm}
+      />
     </div>
   );
 }
