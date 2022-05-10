@@ -17,3 +17,26 @@
     width: 6rem;
   }
 }
+
+
+@media (min-width: 1921px) {
+  .mainImg {
+    width: 25rem;
+    height: auto;
+    
+    img {
+      object-fit: contain;
+      height: 300px;
+      width: 100%;
+    }
+  }
+  
+  .thumbnail {
+    width: 25rem;
+    img {
+      object-fit: contain;
+      min-height: 124.7px;
+      width: 8.33rem;
+    }
+  }
+}

@@ -5,7 +5,7 @@
     display: block;
     width: 100%;
     margin: .5rem auto;
-   
+    
     input[type=radio] {
       height: 1rem;
       width: 1rem;
@@ -20,7 +20,6 @@
       &:checked {
         background: var(--dark-gray);
       }
-
     }
   
     label {
@@ -39,6 +38,9 @@
     background-color: var(--gray-100);
   }
 
+  .expandOrShrink {
+    margin: .3rem 0;
+  }
 }
 
 @media (max-width: 1050px) {

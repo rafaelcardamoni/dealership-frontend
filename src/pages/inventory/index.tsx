@@ -45,7 +45,12 @@ export default function Inventory({ cars }) {
               }
               if (checkboxFilter && searchTerm !== '') {
                 if (
-                  (car.make.includes(checkboxFilter) &&
+                  car.make.includes(checkboxFilter) ||
+                  car.model.includes(checkboxFilter) ||
+                  car.type.includes(checkboxFilter) ||
+                  car.color.includes(checkboxFilter) ||
+                  car.transmission.includes(checkboxFilter) ||
+                  (car.fuel.includes(checkboxFilter) &&
                     (car.make.toLowerCase().includes(searchTerm) ||
                       car.model.toLowerCase().includes(searchTerm) ||
                       car.trim.toLowerCase().includes(searchTerm) ||
@@ -59,7 +64,14 @@ export default function Inventory({ cars }) {
                   return car;
                 }
               } else if (checkboxFilter !== '') {
-                if (car.make.includes(checkboxFilter)) {
+                if (
+                  car.make.includes(checkboxFilter) ||
+                  car.model.includes(checkboxFilter) ||
+                  car.type.includes(checkboxFilter) ||
+                  car.color.includes(checkboxFilter) ||
+                  car.transmission.includes(checkboxFilter) ||
+                  car.fuel.includes(checkboxFilter)
+                ) {
                   return car;
                 }
               } else if (

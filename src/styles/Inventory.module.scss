@@ -50,6 +50,12 @@
   gap: 1rem;
 }
 
+@media (min-width: 1981px) {
+  .grid {
+    --auto-grid-min-size: 35rem;
+  }
+}
+
 @media (max-width: 1050px) {
   .container {
     display: grid;

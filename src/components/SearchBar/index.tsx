@@ -9,7 +9,7 @@ export function SearchBar({ handleSearchTerm }: SearchBarProps) {
     <div className={styles.inputWrapper}>
       <input
         type="text"
-        placeholder="Pesquise por termo, modelo, marca..."
+        placeholder="Pesquise por modelo, marca, versão, cor..."
         onChange={event => {
           handleSearchTerm(event.target.value.toLowerCase());
         }}
