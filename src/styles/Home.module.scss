@@ -14,17 +14,22 @@
   gap: 1rem;
 }
 
-@media screen and (min-width: 2000px) {
+@media screen and (min-width: 2463px) {
   .grid {
-    --auto-grid-min-size: 35rem;
+    --auto-grid-min-size: 32rem;
+  }
+}
+
+@media screen and (min-width: 2000px) and (max-width: 2462px) {
+  .grid {
+    --auto-grid-min-size: 30rem;
   }
 }
 
 
 @media screen and (min-width: 1823px) and (max-width: 1999px) {
   .grid {
-    --auto-grid-min-size: 28rem;
-    gap: 1rem;
+    --auto-grid-min-size: 25rem;
   }
 }
 
