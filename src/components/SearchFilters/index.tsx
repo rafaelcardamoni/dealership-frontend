@@ -15,7 +15,9 @@ export function SearchFilters({
   handleSearchTerm
 }: SearchFilterProps) {
   const cars = useContext(CarsContext);
-  const [modelLimit, setModelLimit] = useState(3);
+  const limit = 3;
+  const [makeLimit, setMakeLimit] = useState(limit);
+  const [modelLimit, setModelLimit] = useState(limit);
 
   // array of unique car attributes
   const uniqueMakes = [...new Set(cars.map(car => car.make))];
@@ -56,7 +58,7 @@ export function SearchFilters({
     <div className={styles.container}>
       <h4>Marcas</h4>
 
-      {uniqueMakes.map(make => {
+      {uniqueMakes.slice(0, makeLimit).map(make => {
         return (
           <slot key={make} className={styles.slot}>
             <div>
@@ -78,6 +80,32 @@ export function SearchFilters({
           </slot>
         );
       })}
+
+      {uniqueMakes.length <= limit ? null : (
+        <button
+          onClick={() => {
+            makeLimit == uniqueMakes.length
+              ? setMakeLimit(limit)
+              : setMakeLimit(uniqueMakes.length);
+          }}
+          className={styles.expandOrShrink}
+        >
+          <span>
+            <i>
+              {makeLimit == limit ? (
+                <IoMdAddCircleOutline
+                  style={{ verticalAlign: 'middle', marginRight: '5px' }}
+                />
+              ) : (
+                <GrSubtractCircle
+                  style={{ verticalAlign: 'middle', marginRight: '5px' }}
+                />
+              )}
+            </i>
+            ver {makeLimit == limit ? 'mais' : 'menos'}
+          </span>
+        </button>
+      )}
 
       <h4>Modelos</h4>
 
@@ -102,29 +130,31 @@ export function SearchFilters({
         );
       })}
 
-      <button
-        onClick={() => {
-          modelLimit == uniqueModels.length
-            ? setModelLimit(3)
-            : setModelLimit(uniqueModels.length);
-        }}
-        className={styles.expandOrShrink}
-      >
-        <span>
-          <i>
-            {modelLimit == 3 ? (
-              <IoMdAddCircleOutline
-                style={{ verticalAlign: 'middle', marginRight: '5px' }}
-              />
-            ) : (
-              <GrSubtractCircle
-                style={{ verticalAlign: 'middle', marginRight: '5px' }}
-              />
-            )}
-          </i>
-          ver {modelLimit == 3 ? 'mais' : 'menos'}
-        </span>
-      </button>
+      {uniqueModels.length <= limit ? null : (
+        <button
+          onClick={() => {
+            modelLimit == uniqueModels.length
+              ? setModelLimit(limit)
+              : setModelLimit(uniqueModels.length);
+          }}
+          className={styles.expandOrShrink}
+        >
+          <span>
+            <i>
+              {modelLimit == limit ? (
+                <IoMdAddCircleOutline
+                  style={{ verticalAlign: 'middle', marginRight: '5px' }}
+                />
+              ) : (
+                <GrSubtractCircle
+                  style={{ verticalAlign: 'middle', marginRight: '5px' }}
+                />
+              )}
+            </i>
+            ver {modelLimit == limit ? 'mais' : 'menos'}
+          </span>
+        </button>
+      )}
 
       <h4>Carroceria</h4>
 
