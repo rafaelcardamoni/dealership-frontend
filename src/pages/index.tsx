@@ -47,6 +47,7 @@ export default function Home({ data }) {
         </section>
 
         <section className={styles.hero}>
+          <h1>Veículos em estoque</h1>
           <div className={styles.grid}>
             {cars.map(car => {
               return <CarsCardSmall key={car.id} car={car} />;

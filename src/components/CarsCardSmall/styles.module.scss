@@ -7,7 +7,6 @@
   text-align: left;
   min-height: 520px;
   min-width: 325px;
-
   border: var(--border-light);
 
   a {
@@ -25,7 +24,7 @@
   }
 
   .infoGrid {
-    font-weight: 500;
+    font-weight: normal;
     max-width: 100%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);

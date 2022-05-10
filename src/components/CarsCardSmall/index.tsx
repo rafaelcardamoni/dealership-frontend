@@ -1,4 +1,4 @@
-import { CarImageCarousel } from '../CarImageCarousel';
+import { CarImageCarouselSmall } from '../CarImageCarouselSmall';
 import styles from './styles.module.scss';
 import { BsSpeedometer2 } from 'react-icons/bs';
 import { GiGearStick } from 'react-icons/gi';
@@ -36,7 +36,7 @@ export function CarsCardSmall({ car }: CardProps) {
   return (
     <div className={styles.gridItem}>
       <div className={styles.carousel}>
-        <CarImageCarousel images={car.images} />
+        <CarImageCarouselSmall images={car.images} />
       </div>
 
       <Link href={`/cars/${car.id}`}>

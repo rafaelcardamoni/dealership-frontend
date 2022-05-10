@@ -5,6 +5,10 @@
   button {
     margin-top: 3rem;
   }
+
+  h1 {
+    margin-bottom: 2rem;
+  }
 }
 
 .grid {
@@ -25,7 +29,6 @@
     --auto-grid-min-size: 30rem;
   }
 }
-
 
 @media screen and (min-width: 1823px) and (max-width: 1999px) {
   .grid {

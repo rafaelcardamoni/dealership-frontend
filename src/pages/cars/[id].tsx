@@ -1,12 +1,45 @@
 import axios from 'axios';
 import { GetStaticPaths, GetStaticProps } from 'next';
+import { useEffect, useState } from 'react';
+import { CarImageCarouselMain } from '../../components/CarImageCarouselMain';
+
+interface CarProps {
+  id: string;
+  make: string;
+  model: string;
+  trim: string;
+  year: string;
+  price: number;
+  engine: string;
+  mileage: number;
+  transmission: string;
+  power?: number;
+  fuel: string;
+  city_consumption?: number;
+  road_consumption?: number;
+  type?: string;
+  color?: string;
+  images: [
+    {
+      id: string;
+      path: string;
+    }
+  ];
+}
 
 export default function CarDetails({ data }) {
+  const [carInfo] = useState<CarProps[]>(data);
+  const [imageData, setImageData] = useState<any>([]);
+
+  useEffect(() => {
+    carInfo.map(car => {
+      setImageData(car.images);
+    });
+  }, []);
+
   return (
     <>
-      {data.map(car => {
-        return <h1 key={car.id}>{`${car.make} ${car.model}`}</h1>;
-      })}
+      <CarImageCarouselMain data={imageData} />
     </>
   );
 }

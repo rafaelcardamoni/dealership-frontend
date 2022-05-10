@@ -1536,6 +1536,11 @@ react-modal@^3.14.4:
     react-lifecycles-compat "^3.0.0"
     warning "^4.0.3"
 
+react-simple-image-viewer@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/react-simple-image-viewer/-/react-simple-image-viewer-1.2.1.tgz#9e95595d0a608bc4e95637a97bedf14611ee7153"
+  integrity sha512-HMFWV94K0fY9XCECvu/1ilomJQkFxiFv3DcZNHspgZFp+aUPFR/UEtYb4oDkGVidOZtErQZHr87dTvC6Mmo79g==
+
 react@17.0.2:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/react/-/react-17.0.2.tgz#d0b5cc516d29eb3eee383f75b62864cfb6800037"
