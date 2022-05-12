@@ -3,7 +3,6 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import { useEffect, useState } from 'react';
 import { Button } from '../../components/Button';
 import { CarImageCarouselMain } from '../../components/CarImageCarouselMain';
-import { Logo } from '../../components/Logo';
 import styles from '../../styles/[id].module.scss';
 
 interface CarProps {
@@ -49,8 +48,8 @@ export default function CarDetails({ data }) {
       <section className={styles.carInfo}>
         {carInfo.map(car => {
           return (
-            <>
-              <div className={styles.details} key={car.id}>
+            <span key={car.id}>
+              <div className={styles.details}>
                 <h1
                   className={styles.carTitle}
                 >{`${car.make} ${car.model} ${car.trim}`}</h1>
@@ -103,19 +102,14 @@ export default function CarDetails({ data }) {
                 <p>
                   Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                   Minus ipsam nihil quae quod. Laudantium quidem nesciunt
-                  doloribus quo voluptatum expedita dolore facere, quis,
-                  excepturi eius fugit minima numquam quod aliquam. Nobis porro
-                  veritatis incidunt odit atque maxime voluptatibus ratione ea.
+                  doloribus quo voluptatum expedita dolore facere.
                 </p>
 
                 <h1>Acessórios</h1>
                 <p>
                   Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                   Voluptatem voluptatum alias est, dicta corrupti doloribus
-                  beatae odit eos, voluptate sed facilis officia placeat
-                  aspernatur officiis enim excepturi temporibus vero quod
-                  incidunt porro. Exercitationem adipisci reiciendis accusamus,
-                  aperiam consequatur provident esse!
+                  beatae odit eos, voluptate sed facilis officia placeat.
                 </p>
                 <h1>Preço</h1>
                 <span>
@@ -127,7 +121,7 @@ export default function CarDetails({ data }) {
                 <Button text="Entre em contato" />
                 <div className={styles.logo}></div>
               </div>
-            </>
+            </span>
           );
         })}
       </section>

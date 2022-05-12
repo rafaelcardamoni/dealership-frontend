@@ -3,7 +3,6 @@ import { useContext } from 'react';
 import { ImageViewerContext } from '../../contexts/ImageViewerContext';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import styles from './styles.module.scss';
-import Router, { useRouter } from 'next/router';
 
 interface ImageProps {
   data: [
@@ -18,25 +17,7 @@ export function CarImageCarouselMain({ data }: ImageProps) {
   const { currentImage, isViewerOpen, openImageViewer, closeImageViewer } =
     useContext(ImageViewerContext);
 
-  const router = useRouter();
-
   const images = [...new Set(data.map(images => images.path))];
-
-  const refreshData = () => {
-    router.replace(router.asPath);
-    return null;
-  };
-
-  function test() {
-    if (typeof window !== 'undefined') {
-      let width: number = window.innerWidth;
-      if (width >= 1000) {
-        return 3;
-      } else {
-        return 1;
-      }
-    }
-  }
 
   return (
     <>
