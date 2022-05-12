@@ -36,7 +36,12 @@ export function CarImageCarouselMain({ data }: ImageProps) {
           </SwiperSlide>
         ))}
       </Swiper>
-      <Swiper spaceBetween={10} slidesPerView={3} className={styles.thumbnail}>
+      <Swiper
+        spaceBetween={10}
+        slidesPerView={3}
+        className={styles.thumbnail}
+        breakpoints={{ 1921: { slidesPerView: 5 } }}
+      >
         {data.map((image, index) => {
           return (
             <SwiperSlide key={image.id}>

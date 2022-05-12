@@ -2,7 +2,7 @@ import styles from './styles.module.scss';
 import { MdKeyboardArrowRight } from 'react-icons/md';
 
 interface ButtonProps {
-  func?(): void;
+  onClick?: () => void;
   text: string;
   width?: string;
   color?: string;
@@ -10,7 +10,7 @@ interface ButtonProps {
 }
 
 export function Button({
-  func,
+  onClick,
   text,
   width,
   color,
@@ -20,7 +20,7 @@ export function Button({
     <>
       <button
         className={styles.button}
-        onClick={func}
+        onClick={onClick}
         style={{ width: width, color: color, background: backgroundColor }}
       >
         <i>

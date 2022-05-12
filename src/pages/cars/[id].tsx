@@ -40,6 +40,15 @@ export default function CarDetails({ data }) {
     });
   });
 
+  function shareURL() {
+    if (typeof window !== 'undefined') {
+      const data = {
+        url: window.location.href
+      };
+      navigator.share(data);
+    }
+  }
+
   return (
     <div className={styles.container}>
       <section className={styles.banner}>
@@ -76,6 +85,12 @@ export default function CarDetails({ data }) {
                   <div className={styles.gridItem}>
                     <span className={styles.title}>Motor</span>
                     <span className={styles.description}>{car.engine}</span>
+                  </div>
+                  <div className={styles.gridItem}>
+                    <span className={styles.title}>Transmissão</span>
+                    <span className={styles.description}>
+                      {car.transmission}
+                    </span>
                   </div>
                   <div className={styles.gridItem}>
                     <span className={styles.title}>Combustível</span>
@@ -119,13 +134,6 @@ export default function CarDetails({ data }) {
               </div>
 
               <div className={styles.priceAndContact}>
-                <h1>Descrição</h1>
-                <p>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Minus ipsam nihil quae quod. Laudantium quidem nesciunt
-                  doloribus quo voluptatum expedita dolore facere.
-                </p>
-
                 <h1>Acessórios</h1>
                 <p>
                   Lorem, ipsum dolor sit amet consectetur adipisicing elit.
@@ -139,7 +147,10 @@ export default function CarDetails({ data }) {
                     currency: 'BRL'
                   }).format(car.price)}
                 </span>
-                <Button text="Entre em contato" />
+                <div className={styles.buttons}>
+                  <Button text="Entre em contato" width="150px" />
+                  <Button text="Compartilhe" onClick={shareURL} width="150px" />
+                </div>
                 <div className={styles.logo}></div>
               </div>
             </span>

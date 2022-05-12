@@ -142,3 +142,36 @@ div.swiper-pagination {
     padding: .15rem;
   }
 }
+
+.react-simple-image-viewer__previous {
+  height: 30%;
+}
+
+#ReactSimpleImageViewer {
+  .react-simple-image-viewer__close {
+    font-size: 50px;
+    opacity: .5;
+    top: 0;
+  }
+
+  .react-simple-image-viewer__previous,
+  .react-simple-image-viewer__next {
+    height: 20%;
+    opacity: .5;
+  }
+
+
+  @media (max-width: 470px) {
+    .react-simple-image-viewer__close {
+      opacity: 1;
+      font-size: 35px;
+    }
+
+    .react-simple-image-viewer__previous,
+    .react-simple-image-viewer__next {
+      height: 15%;
+      opacity: 1;
+      font-size: 35px;
+    }
+  }
+}
