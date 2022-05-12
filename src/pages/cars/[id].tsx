@@ -21,6 +21,7 @@ interface CarProps {
   road_consumption?: number;
   type?: string;
   color?: string;
+  range?: number;
   images: [
     {
       id: string;
@@ -55,10 +56,16 @@ export default function CarDetails({ data }) {
                 >{`${car.make} ${car.model} ${car.trim}`}</h1>
                 <div className={styles.grid}>
                   <div className={styles.gridItem}>
+                    <span className={styles.title}>Ano</span>
+                    <span className={styles.description}>{`${car.year}`}</span>
+                  </div>
+                  <div className={styles.gridItem}>
                     <span className={styles.title}>Quilometragem</span>
                     <span
                       className={styles.description}
-                    >{`${car.mileage} km`}</span>
+                    >{`${new Intl.NumberFormat('pt-BR').format(
+                      car.mileage
+                    )} km`}</span>
                   </div>
                   <div className={styles.gridItem}>
                     <span className={styles.title}>Potência</span>
@@ -74,17 +81,31 @@ export default function CarDetails({ data }) {
                     <span className={styles.title}>Combustível</span>
                     <span className={styles.description}>{car.fuel}</span>
                   </div>
+                  {car.fuel === 'Elétrico' ? (
+                    <div className={styles.gridItem}>
+                      <span className={styles.title}>Alcance</span>
+                      <span className={styles.description}>
+                        {new Intl.NumberFormat('pt-BR').format(car.range)} km
+                      </span>
+                    </div>
+                  ) : null}
                   <div className={styles.gridItem}>
                     <span className={styles.title}>Consumo na cidade</span>
-                    <span
-                      className={styles.description}
-                    >{`${car.city_consumption} km/l`}</span>
+                    <span className={styles.description}>
+                      {car.city_consumption === null
+                        ? '0'
+                        : car.city_consumption}{' '}
+                      km/l
+                    </span>
                   </div>
                   <div className={styles.gridItem}>
                     <span className={styles.title}>Consumo na estrada</span>
-                    <span
-                      className={styles.description}
-                    >{`${car.road_consumption} km/l`}</span>
+                    <span className={styles.description}>
+                      {car.road_consumption === null
+                        ? '0'
+                        : car.road_consumption}{' '}
+                      km/l
+                    </span>
                   </div>
                   <div className={styles.gridItem}>
                     <span className={styles.title}>Cor</span>

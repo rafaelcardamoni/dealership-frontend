@@ -24,6 +24,7 @@ interface CarProps {
   road_consumption?: number;
   type?: string;
   color?: string;
+  range?: number;
   images: [
     {
       id: string;
