@@ -1,0 +1,26 @@
+.swiperContainer {
+  min-width: 300px;
+  width: 100%;
+  height: auto;
+
+  img {
+    overflow: hidden;
+    &:hover {
+      cursor: -moz-zoom-in; 
+      cursor: -webkit-zoom-in; 
+      cursor: zoom-in;
+    }
+  }
+}
+
+.thumbnail {
+  cursor: -moz-zoom-in; 
+  cursor: -webkit-zoom-in; 
+  cursor: zoom-in;
+}
+
+@media (min-width: 1921px) {
+  // .thumbnail {
+  //   display: none;
+  // }
+}

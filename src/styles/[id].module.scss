@@ -1,0 +1,113 @@
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "image image details"
+                          "image image details"
+                          "image image details";
+    font-family: var(--dmsans);
+    font-weight: normal;
+
+    .banner {
+      grid-area: image;
+    }
+  }
+
+  .carInfo {
+    display: flex;
+    flex-direction: column;
+    grid-area: details;
+    gap: 1rem;
+    padding: 2rem;
+  }
+
+  .details {
+    display: flex;
+    flex-direction: column;
+  }
+  .carTitle {
+    font-size: 2.5rem;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: auto;
+  }
+  .gridItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10rem;
+    padding: 1rem;
+    border-top: var(--border-light);
+    font-family: var(--roboto);
+    
+    &:last-child {
+      border-bottom: var(--border-light);
+    }
+
+    .title {
+      color: var(--gray-700);
+    }
+
+    .description {
+      font-weight: bold;
+      align-items: flex-end;
+      text-align: end;
+    }
+  }
+
+  .priceAndContact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: auto;
+    
+    span {
+      margin: 1rem 0;
+      font-size: 2rem;
+      font-weight: bold;
+      text-align: left;
+    }
+    
+    button {
+      margin: .5rem 0;
+    }
+    .logo {
+      margin: 1rem auto;
+    }
+  }
+  
+@media screen and (max-width: 1700px) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "image image"
+                          "details details";
+  }
+  .carInfo {
+    align-items: unset;
+  }
+}
+
+@media (max-width: 650px) {
+  .carInfo {
+    gap: 1rem;
+  }
+
+  .carTitle {
+    font-size: 2rem;
+  }
+
+  .grid {
+    display: block;
+  }
+
+  .gridItem {
+    gap: 5rem;
+  }
+
+  .description {
+    text-align: end;
+  }
+}
