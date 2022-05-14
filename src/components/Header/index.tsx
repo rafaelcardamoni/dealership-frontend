@@ -38,23 +38,9 @@ export function Header() {
           </Link>
         </li>
         <li className={styles.menuItem}>
-          <Link href="/about-us" passHref>
-            <a className={styles.menuLinks} onClick={closeMobileMenu}>
-              Quem somos
-            </a>
-          </Link>
-        </li>
-        <li className={styles.menuItem}>
           <Link href="/inventory" passHref>
             <a className={styles.menuLinks} onClick={closeMobileMenu}>
               Estoque
-            </a>
-          </Link>
-        </li>
-        <li className={styles.menuItem}>
-          <Link href="/services" passHref>
-            <a className={styles.menuLinks} onClick={closeMobileMenu}>
-              Serviços
             </a>
           </Link>
         </li>
