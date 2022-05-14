@@ -134,22 +134,17 @@ export default function CarDetails({ data }) {
               </div>
 
               <div className={styles.priceAndContact}>
-                <h1>Acessórios</h1>
-                <p>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Voluptatem voluptatum alias est, dicta corrupti doloribus
-                  beatae odit eos, voluptate sed facilis officia placeat.
-                </p>
-                <h1>Preço</h1>
-                <span>
-                  {new Intl.NumberFormat('pt-BR', {
-                    style: 'currency',
-                    currency: 'BRL'
-                  }).format(car.price)}
-                </span>
+                <div className={styles.price}>
+                  <span>
+                    {new Intl.NumberFormat('pt-BR', {
+                      style: 'currency',
+                      currency: 'BRL'
+                    }).format(car.price)}
+                  </span>
+                </div>
                 <div className={styles.buttons}>
-                  <Button text="Entre em contato" width="150px" />
-                  <Button text="Compartilhe" onClick={shareURL} width="150px" />
+                  <Button text="Entre em contato" width="180px" />
+                  <Button text="Compartilhe" onClick={shareURL} width="180px" />
                 </div>
                 <div className={styles.logo}></div>
               </div>

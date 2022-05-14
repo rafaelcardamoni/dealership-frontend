@@ -66,8 +66,13 @@
     padding: 0 1rem;
     margin-top: 1rem;
 
+    .price {
+      display: flex;
+      align-items: center;
+    }
+
     span {
-      margin: 1rem 0;
+      margin-bottom: .5rem;
       font-size: 2rem;
       font-weight: bold;
       text-align: left;
@@ -101,7 +106,7 @@
   }
 }
 
-@media screen and (max-width: 1700px) {
+@media screen and (max-width: 1500px) {
   .container {
     display: grid;
     grid-template-columns: 1fr 1fr;
