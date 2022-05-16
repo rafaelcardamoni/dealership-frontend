@@ -1,10 +1,9 @@
-import axios from 'axios';
 import { GetStaticProps } from 'next';
 import { useState } from 'react';
 import { CarsCardSmall } from '../../components/CarsCardSmall';
 import { SearchBar } from '../../components/SearchBar';
 import { SearchFilters } from '../../components/SearchFilters';
-import { api } from '../../services/api';
+import { getServerSideApi } from '../../services/serverSideApi';
 import styles from '../../styles/Inventory.module.scss';
 
 export default function Inventory({ cars }) {
@@ -99,8 +98,11 @@ export default function Inventory({ cars }) {
   );
 }
 
-export const getStaticProps: GetStaticProps = async () => {
-  const cars = await api.get(`/api/cars`).then(response => response.data);
+export const getStaticProps: GetStaticProps = async ctx => {
+  const serverSideApi = getServerSideApi(ctx);
+  const cars = await serverSideApi
+    .get(`/api/cars`)
+    .then(response => response.data);
 
   return {
     props: {

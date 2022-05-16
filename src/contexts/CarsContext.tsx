@@ -1,5 +1,5 @@
-import axios from 'axios';
 import { createContext, useState, useEffect, ReactNode } from 'react';
+import { clientSideApi } from '../services/clientSideApi';
 
 interface CarProps {
   id: string;
@@ -36,8 +36,8 @@ export const CarsProvider = ({ children }: CarsProviderProps) => {
   const [cars, setCars] = useState<CarProps[]>([]);
 
   useEffect(() => {
-    axios
-      .get(`https://dealership-next.herokuapp.com/api/cars`)
+    clientSideApi
+      .get(`/api/cars`)
       .then(response => response.data)
       .then(data => setCars(data));
   }, []);

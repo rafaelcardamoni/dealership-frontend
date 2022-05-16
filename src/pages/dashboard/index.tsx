@@ -1,14 +1,14 @@
+import jwt from 'jsonwebtoken';
 import { GetServerSideProps } from 'next';
 import { parseCookies } from 'nookies';
-import jwt from 'jsonwebtoken';
 import { useEffect } from 'react';
-import { api } from '../../services/api';
+import { clientSideApi } from '../../services/clientSideApi';
 
 export default function Dashboard({ userInfo }) {
   const user = JSON.parse(userInfo);
 
   useEffect(() => {
-    api.get('/api/users');
+    clientSideApi.get('/api/users');
   }, []);
 
   return (

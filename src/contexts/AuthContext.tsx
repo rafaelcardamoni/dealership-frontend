@@ -7,7 +7,7 @@ import {
 } from 'react';
 import { setCookie, parseCookies } from 'nookies';
 import Router from 'next/router';
-import { api } from '../services/api';
+import { clientSideApi } from '../services/clientSideApi';
 
 interface User {
   fullname?: string;
@@ -50,7 +50,7 @@ export function AuthProvider({ children }) {
   }, []);
 
   async function signIn({ email, password }: User) {
-    api
+    clientSideApi
       .post('/api/login', {
         email: email,
         password: password

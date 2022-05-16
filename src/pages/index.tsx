@@ -1,13 +1,12 @@
 import Head from 'next/head';
 import { useState } from 'react';
-import axios from 'axios';
 import styles from '../styles/Home.module.scss';
 import { Banner } from '../components/Banner';
 import { CarsCardSmall } from '../components/CarsCardSmall';
 import { GetStaticProps } from 'next';
 import { Button } from '../components/Button';
 import Link from 'next/link';
-import { api } from '../services/api';
+import { getServerSideApi } from '../services/serverSideApi';
 
 interface CarProps {
   id: string;
@@ -67,8 +66,12 @@ export default function Home({ data }) {
   );
 }
 
-export const getStaticProps: GetStaticProps = async () => {
-  const data = await api.get(`/api/cars/4`).then(response => response.data);
+export const getStaticProps: GetStaticProps = async ctx => {
+  const serverSideApi = getServerSideApi(ctx);
+
+  const data = await serverSideApi
+    .get(`/api/cars/4`)
+    .then(response => response.data);
 
   return {
     props: {

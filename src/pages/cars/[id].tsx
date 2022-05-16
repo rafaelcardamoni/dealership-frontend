@@ -3,7 +3,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import { useEffect, useState } from 'react';
 import { Button } from '../../components/Button';
 import { CarImageCarouselMain } from '../../components/CarImageCarouselMain';
-import { api } from '../../services/api';
+import { getServerSideApi } from '../../services/serverSideApi';
 import styles from '../../styles/[id].module.scss';
 
 interface CarProps {
@@ -157,8 +157,11 @@ export default function CarDetails({ data }) {
   );
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const response = await api.get(`/api/cars`).then(response => response.data);
+export const getStaticPaths: GetStaticPaths = async ctx => {
+  const serverSideApi = getServerSideApi(ctx);
+  const response = await serverSideApi
+    .get(`/api/cars`)
+    .then(response => response.data);
 
   const paths = response.map(car => {
     return {
@@ -174,10 +177,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps = async context => {
-  const id = context.params.id;
+export const getStaticProps: GetStaticProps = async ctx => {
+  const serverSideApi = getServerSideApi(ctx);
+  const id = ctx.params.id;
 
-  const data = await api.get(`/api/car/${id}`).then(response => response.data);
+  const data = await serverSideApi
+    .get(`/api/car/${id}`)
+    .then(response => response.data);
 
   return {
     props: {
