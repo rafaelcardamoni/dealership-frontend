@@ -7,11 +7,12 @@ import {
 } from 'react';
 import { setCookie, parseCookies } from 'nookies';
 import Router from 'next/router';
-import axios from 'axios';
+import { api } from '../services/api';
 
 interface User {
+  fullname?: string;
   email: string;
-  password: string;
+  password?: string;
 }
 
 interface AuthContext {
@@ -21,12 +22,13 @@ interface AuthContext {
   setAuthenticated: Dispatch<SetStateAction<boolean>>;
   error: boolean;
   setError: Dispatch<SetStateAction<boolean>>;
+  errorMessage: string;
+  setErrorMessage: Dispatch<SetStateAction<string>>;
   email: string;
   setEmail: Dispatch<SetStateAction<string>>;
   password: string;
   setPassword: Dispatch<SetStateAction<string>>;
   signIn({ email, password }: User): Promise<void>;
-  redirect(url: string): void;
 }
 
 export const AuthContext = createContext({} as AuthContext);
@@ -35,47 +37,51 @@ export function AuthProvider({ children }) {
   const [token, setToken] = useState('');
   const [authenticated, setAuthenticated] = useState(false);
   const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-  function redirect(url: string) {
-    if (authenticated) {
-      Router.push(`${url}`);
-    }
-  }
 
   useEffect(() => {
     const { 'nextauth.token': authToken } = parseCookies();
 
     if (authToken) {
-      return console.log('authenticated user');
-    } else {
-      redirect('/login');
+      setAuthenticated(true);
     }
   }, []);
 
   async function signIn({ email, password }: User) {
-    axios
-      .post(`https://dealership-next.herokuapp.com/api/login`, {
+    api
+      .post('/api/login', {
         email: email,
         password: password
       })
       .then(result => {
         if (result.status === 200) {
-          console.log(result.data);
-          setToken(result.data);
+          const { token } = result.data;
+          const { name, email } = result.data;
+          const userInfo = {
+            fullname: name,
+            email: email
+          };
+          setToken(token);
           setAuthenticated(true);
           setCookie(undefined, 'nextauth.token', token, {
             maxAge: 60 * 60 * 1 // 1 hour to expire
           });
-          redirect('/dashboard');
+          setCookie(undefined, 'userInfo', JSON.stringify(userInfo), {
+            maxAge: 60 * 60 * 1 // 1 hour to expire
+          });
+
+          Router.push('/dashboard');
         } else {
           setError(true);
         }
       })
-      .catch(error => {
-        console.log(error.message);
-        setError(true);
+      .catch(e => {
+        if (e.response) {
+          setError(true);
+          setErrorMessage(e.response.data.error);
+        }
       });
   }
 
@@ -90,10 +96,11 @@ export function AuthProvider({ children }) {
         setPassword,
         error,
         setError,
+        errorMessage,
+        setErrorMessage,
         authenticated,
         setAuthenticated,
-        signIn,
-        redirect
+        signIn
       }}
     >
       {children}

@@ -7,6 +7,7 @@ import { CarsCardSmall } from '../components/CarsCardSmall';
 import { GetStaticProps } from 'next';
 import { Button } from '../components/Button';
 import Link from 'next/link';
+import { api } from '../services/api';
 
 interface CarProps {
   id: string;
@@ -67,9 +68,7 @@ export default function Home({ data }) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const data = await axios
-    .get(`${process.env.BASE_URL}/api/cars/4`)
-    .then(response => response.data);
+  const data = await api.get(`/api/cars/4`).then(response => response.data);
 
   return {
     props: {

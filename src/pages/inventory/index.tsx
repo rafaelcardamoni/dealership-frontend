@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { CarsCardSmall } from '../../components/CarsCardSmall';
 import { SearchBar } from '../../components/SearchBar';
 import { SearchFilters } from '../../components/SearchFilters';
+import { api } from '../../services/api';
 import styles from '../../styles/Inventory.module.scss';
 
 export default function Inventory({ cars }) {
@@ -99,9 +100,7 @@ export default function Inventory({ cars }) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const cars = await axios
-    .get(`${process.env.BASE_URL}/api/cars`)
-    .then(response => response.data);
+  const cars = await api.get(`/api/cars`).then(response => response.data);
 
   return {
     props: {

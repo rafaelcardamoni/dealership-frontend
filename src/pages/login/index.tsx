@@ -1,7 +1,8 @@
 import { Form } from '@unform/web';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { Input } from '../../components/Form/Input';
 import { AuthContext } from '../../contexts/AuthContext';
+import Router from 'next/router';
 
 interface User {
   email: string;
@@ -9,7 +10,7 @@ interface User {
 }
 
 export default function Login() {
-  const { signIn } = useContext(AuthContext);
+  const { signIn, authenticated } = useContext(AuthContext);
 
   function handleSubmit({ email, password }: User) {
     signIn({ email, password });
