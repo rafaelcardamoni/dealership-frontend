@@ -7,6 +7,7 @@ interface ButtonProps {
   width?: string;
   color?: string;
   backgroundColor?: string;
+  type?: 'submit' | 'reset' | 'button' | undefined;
 }
 
 export function Button({
@@ -14,7 +15,8 @@ export function Button({
   text,
   width,
   color,
-  backgroundColor
+  backgroundColor,
+  type
 }: ButtonProps) {
   return (
     <>
@@ -22,6 +24,7 @@ export function Button({
         className={styles.button}
         onClick={onClick}
         style={{ width: width, color: color, background: backgroundColor }}
+        type={type}
       >
         <i>
           <MdKeyboardArrowRight style={{ verticalAlign: 'middle' }} />

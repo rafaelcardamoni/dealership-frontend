@@ -6,9 +6,10 @@ interface LogoProps {
   color?: string;
   width?: number;
   fontSize?: number;
+  iconOnly?: boolean;
 }
 
-export function Logo({ color, width, fontSize }: LogoProps) {
+export function Logo({ color, width, fontSize, iconOnly }: LogoProps) {
   return (
     <div className={styles.logoContainer}>
       <Link href="/">
@@ -16,7 +17,9 @@ export function Logo({ color, width, fontSize }: LogoProps) {
           <i>
             <AiFillCar style={{ verticalAlign: 'middle' }} />
           </i>
-          <span style={{ color: color }}> dealership</span>
+          {iconOnly === true ? null : (
+            <span style={{ color: color }}> dealership</span>
+          )}
         </a>
       </Link>
     </div>

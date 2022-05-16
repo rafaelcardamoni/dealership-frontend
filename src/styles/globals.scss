@@ -30,7 +30,7 @@ main {
   --gray-800: #29292e;
   --gray-850: #1f2729;
   --gray-900: #121214;
-  --link: #61dafb;
+  --link: #736ce9;
   --blue: #14245a;
   --dark-blue: #0e1418;
   --red-500: #e8374b;
@@ -39,12 +39,11 @@ main {
   --instagram: #DD2A7B;
   --twitter: #1DA1F2;
   --whatsapp: #25D366;
-  // --box-shadow:  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-  --box-shadow: 0 1px 1px rgba(0,0,0,0.3),
-  0 1px 1px rgba(0,0,0,0.11), 
-  0 2px 2px rgba(0,0,0,0.01), 
-  0 4px 4px rgba(0,0,0,0.01),
-  0 8px 8px rgba(0,0,0,0.11);
+  --box-shadow: 1.4px 1.2px 2.7px rgba(0, 0, 0, 0.009),
+  3.5px 3.1px 6.9px rgba(0, 0, 0, 0.013),
+  7.1px 6.4px 14.2px rgba(0, 0, 0, 0.017),
+  14.6px 13.1px 29.2px rgba(0, 0, 0, 0.021),
+  40px 36px 80px rgba(0, 0, 0, 0.03);
   --border-light: 1px solid rgb(227, 228, 229);
   --border-dark: 1px solid rgba(4, 17, 29, 0.75);
 }

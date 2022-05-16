@@ -25,8 +25,8 @@ export function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/">
-                <a>License Agreement</a>
+              <Link href="/login">
+                <a>Área Interna</a>
               </Link>
             </li>
           </ul>
