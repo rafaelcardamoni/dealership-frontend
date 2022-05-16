@@ -3,16 +3,19 @@ import { Footer } from '../components/Footer';
 import '../styles/globals.scss';
 import { CarsProvider } from '../contexts/CarsContext';
 import { ImageViewerProvider } from '../contexts/ImageViewerContext';
+import { AuthProvider } from '../contexts/AuthContext';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <CarsProvider>
-      <ImageViewerProvider>
-        <Header />
-        <Component {...pageProps} />
-        <Footer />
-      </ImageViewerProvider>
-    </CarsProvider>
+    <AuthProvider>
+      <CarsProvider>
+        <ImageViewerProvider>
+          <Header />
+          <Component {...pageProps} />
+          <Footer />
+        </ImageViewerProvider>
+      </CarsProvider>
+    </AuthProvider>
   );
 }
 
