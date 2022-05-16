@@ -1,18 +1,7 @@
 import { parseCookies } from 'nookies';
 import axios from 'axios';
-import * as next from 'next';
-import * as cookie from 'cookie';
 
-export function getServerSideApi(
-  ctx?:
-    | Pick<next.NextPageContext, 'req'>
-    | {
-        req: next.NextApiRequest;
-      }
-    | null
-    | undefined,
-  options?: cookie.CookieParseOptions
-) {
+export function getServerSideApi(ctx?: any) {
   const { ['nextauth.token']: token } = parseCookies(ctx);
 
   const api = axios.create({
