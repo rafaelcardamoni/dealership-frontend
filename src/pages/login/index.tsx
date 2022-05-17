@@ -46,7 +46,9 @@ export default function Login() {
           <div className={styles.options}>
             <div className={styles.checkbox}>
               <Input name="rememberPassword" type="checkbox" />
-              <label htmlFor="rememberPassword">Lembrar a senha</label>
+              <label htmlFor="rememberPassword" className={styles.label}>
+                Lembrar a senha
+              </label>
             </div>
 
             <Link href="/password-reset">
@@ -54,7 +56,7 @@ export default function Login() {
             </Link>
           </div>
 
-          <Button type="submit" text="Entrar" width="72%" />
+          <Button type="submit" text="Entrar" />
         </Form>
       </div>
     </div>
