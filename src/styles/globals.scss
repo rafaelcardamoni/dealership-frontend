@@ -12,6 +12,7 @@ main {
 }
 
 :root {
+  --inter: 'Inter', sans-serif;
   --dmsans: 'DM Sans', sans-serif;
   --roboto: 'Roboto', sans-serif;
   --poppins: 'Poppins', sans-serif;
@@ -20,19 +21,21 @@ main {
   --white: #ffffff;
   --off-white: #f2f2f2;
   --dark-gray: rgba(4, 17, 29, 0.75);
+  --dark-blue: #0e1418;
+  --sidebar: #0f172a;
   --gray-50: #f0efef;
   --gray-100: #e3e4e5;
   --gray-200: #e1e1e6;
   --gray-300: #a8a8b3;
-  --gray-400: #8484849b;
+  --gray-400: #656a76;
   --gray-500: #5b5b5b72;
   --gray-600: #3a3a3a72;
   --gray-800: #29292e;
   --gray-850: #1f2729;
   --gray-900: #121214;
   --link: #736ce9;
+  --title: #e5e5e5;
   --blue: #14245a;
-  --dark-blue: #0e1418;
   --red-500: #e8374b;
   --yellow-500: #eba417;
   --facebook: #4267B2;
@@ -46,10 +49,53 @@ main {
   40px 36px 80px rgba(0, 0, 0, 0.03);
   --border-light: 1px solid rgb(227, 228, 229);
   --border-dark: 1px solid rgba(4, 17, 29, 0.75);
+  --rounded-sm: 0.125rem;
+  --rounded: 0.25rem;
+  --rounded-md: 0.375rem;
+  --rounded-lg: 0.5rem;
+  --rounded-xl: 0.75rem;
+  --rounded-2xl: 1rem;
+  --rounded-3xl: 1.5rem;
+  --speed: .5s;
+  --click-circle-effect-background: rgba(111,148,182,0.1);
+  --click-circle-effect-animation: click-effect-circle 0.3s forwards;
+}
+
+@keyframes click-effect-circle {
+	0% {
+		transform: scale3d(0.3, 0.3, 1);
+	}
+	25%, 50% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+		transform: scale3d(1.2, 1.2, 1);
+	}
 }
 
 * {
   box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  border: var(--border-light);
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+  border: var(--border-light);
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: var(--gray-300);
+  border: var(--border-light);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+  border: var(--border-light);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -65,7 +111,33 @@ ul, li {
 
 
 button, input[type=text] {
+  position: relative;
   all: unset;
+  transition: 0s 3s;
+}
+
+button::after {
+  content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -35px 0 0 -35px;
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+	opacity: 0;
+	pointer-events: none;
+  transition: 0s;
+}
+
+.ripple::after {
+  transition: 0s;
+  background: rgba(111,148,182,0.1);
+}
+
+.ripple:active::after {
+  transition: 0s;
+  animation: click-effect-circle .3s forwards;
 }
 
 a {

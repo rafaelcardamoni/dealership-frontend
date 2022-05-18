@@ -1,0 +1,26 @@
+.menuItem {
+  padding: .5rem 1rem;
+  display: block;
+  width: 100%;
+  font-size: .85rem;
+  color: var(--gray-300);
+  border-radius: var(--rounded-md);
+
+  &:hover {
+    color: var(--gray-100);
+    background-color: rgba(44,51,68,255)
+  }
+
+  div {
+    display: flex;
+    align-items: center;
+  }
+
+  i {
+    display: flex;
+    font-size: 1.4rem;
+    margin-right: 1rem;
+  }
+
+
+}

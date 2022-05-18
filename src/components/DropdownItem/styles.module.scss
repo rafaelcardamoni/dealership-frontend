@@ -1,0 +1,26 @@
+.menuItem {
+  font-family: var(--inter);
+  font-weight: 500;
+  font-size: .9rem;
+  color: var(--gray-400);
+  height: 40px;
+  display: flex;
+  align-items: center;
+  transition: background var(--speed);
+  padding: .75rem;
+  gap: 1rem;
+  min-width: 210px;
+
+  span {
+    line-height: 1.2rem;
+  }
+
+  &:first-child {
+    border-bottom: var(--border-light);
+  }
+
+  &:hover {
+    background-color: var(--gray-100);
+    color: var(--gray-400);
+  }
+}

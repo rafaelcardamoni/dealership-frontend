@@ -1,0 +1,23 @@
+.navigationContainer {
+  font-family: var(--inter);
+
+  .headerWrapper {
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  h4 {
+    display: block;
+    font-size: .8rem;
+    letter-spacing: 1px;
+    color: var(--title);
+  }
+
+  span {
+    display: block;
+    font-size: .75rem;
+    color: var(--gray-300);
+  }
+}

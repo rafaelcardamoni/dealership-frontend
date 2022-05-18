@@ -2,11 +2,11 @@ import { Form } from '@unform/web';
 import { useContext, useEffect } from 'react';
 import { Input } from '../../components/Form/Input';
 import { AuthContext } from '../../contexts/AuthContext';
-import Router from 'next/router';
-import styles from '../../styles/Login.module.scss';
-import { Button } from '../../components/Button';
-import Link from 'next/link';
 import { Logo } from '../../components/Logo';
+import { Button } from '../../components/Button';
+import Router from 'next/router';
+import Link from 'next/link';
+import styles from '../../styles/Login.module.scss';
 
 interface User {
   email: string;
@@ -16,6 +16,10 @@ interface User {
 export default function Login() {
   const { signIn, authenticated } = useContext(AuthContext);
 
+  useEffect(() => {
+    if (authenticated) Router.push('/dashboard');
+  }, []);
+
   function handleSubmit({ email, password }: User) {
     signIn({ email, password });
   }
@@ -24,23 +28,17 @@ export default function Login() {
     <div className={styles.container}>
       <div className={styles.formContainer}>
         <div className={styles.header}>
-          <Logo iconOnly={true} />
-          <h2>Acesse a plataforma</h2>
+          <Logo />
         </div>
 
         <Form onSubmit={handleSubmit} className={styles.form}>
           <div className={styles.inputWrapper}>
             <label htmlFor="email">E-mail</label>
-            <Input name="email" type="email" placeholder="E-mail" required />
+            <Input name="email" type="email" required />
           </div>
           <div className={styles.inputWrapper}>
             <label htmlFor="password">Senha</label>
-            <Input
-              name="password"
-              type="password"
-              placeholder="Password"
-              required
-            />
+            <Input name="password" type="password" required />
           </div>
 
           <div className={styles.options}>

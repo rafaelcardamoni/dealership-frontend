@@ -8,7 +8,7 @@ export default class MyDocument extends Document {
           {/* google fonts */}
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link
-            href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Exo+2:wght@100;300;400;700&family=Josefin+Sans:ital,wght@0,300;0,400;1,500&family=Open+Sans&family=Poppins:wght@400;500;600;700&family=Roboto:wght@300;400;700;900&display=swap"
+            href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Exo+2:wght@100;300;400;700&family=Josefin+Sans:ital,wght@0,300;0,400;1,500&family=Open+Sans&family=Poppins:wght@400;500;600;700&family=Roboto:wght@300;400;700;900&family=Inter:wght@100;300;400;500;600;700&display=swap"
             rel="stylesheet"
           />
 

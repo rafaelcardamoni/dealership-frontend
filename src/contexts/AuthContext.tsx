@@ -6,8 +6,9 @@ import {
   useState
 } from 'react';
 import { setCookie, parseCookies } from 'nookies';
-import Router from 'next/router';
 import { clientSideApi } from '../services/clientSideApi';
+import Router from 'next/router';
+import CryptoJS from 'crypto-js';
 
 interface User {
   fullname?: string;
@@ -59,16 +60,22 @@ export function AuthProvider({ children }) {
         if (result.status === 200) {
           const { token } = result.data;
           const { name, email } = result.data;
-          const userInfo = {
+          const user = {
             fullname: name,
             email: email
           };
+
+          const encoded = CryptoJS.AES.encrypt(
+            JSON.stringify(user),
+            'secret key 123'
+          ).toString();
+
           setToken(token);
           setAuthenticated(true);
           setCookie(undefined, 'nextauth.token', token, {
             maxAge: 60 * 60 * 1 // 1 hour to expire
           });
-          setCookie(undefined, 'userInfo', JSON.stringify(userInfo), {
+          setCookie(undefined, 'userInfo', encoded, {
             maxAge: 60 * 60 * 1 // 1 hour to expire
           });
 
