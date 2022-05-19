@@ -40,7 +40,7 @@ export const CarsProvider = ({ children }: CarsProviderProps) => {
       .get(`/api/cars`)
       .then(response => response.data)
       .then(data => setCars(data));
-  }, [cars]);
+  }, []);
 
   return <CarsContext.Provider value={cars}>{children}</CarsContext.Provider>;
 };
