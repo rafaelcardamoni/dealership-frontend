@@ -1,4 +1,5 @@
-import { createContext, useState, useEffect, ReactNode } from 'react';
+import { createContext, useState, ReactNode } from 'react';
+import useDeepCompareEffect from 'use-deep-compare-effect';
 import { clientSideApi } from '../services/clientSideApi';
 
 interface CarProps {
@@ -35,12 +36,12 @@ interface CarsProviderProps {
 export const CarsProvider = ({ children }: CarsProviderProps) => {
   const [cars, setCars] = useState<CarProps[]>([]);
 
-  useEffect(() => {
+  useDeepCompareEffect(() => {
     clientSideApi
       .get(`/api/cars`)
       .then(response => response.data)
       .then(data => setCars(data));
-  }, [JSON.stringify(cars)]);
+  }, [cars]);
 
   return <CarsContext.Provider value={cars}>{children}</CarsContext.Provider>;
 };
