@@ -1,5 +1,5 @@
-import styles from './styles.module.scss';
 import { MdKeyboardArrowRight } from 'react-icons/md';
+import styles from './styles.module.scss';
 
 interface ButtonProps {
   onClick?: () => void;
@@ -8,6 +8,9 @@ interface ButtonProps {
   color?: string;
   backgroundColor?: string;
   type?: 'submit' | 'reset' | 'button' | undefined;
+  shape?: string;
+  icon?: React.ReactNode;
+  padding?: string;
 }
 
 export function Button({
@@ -15,20 +18,27 @@ export function Button({
   text,
   width,
   color,
+  padding,
   backgroundColor,
-  type
+  type,
+  shape,
+  icon
 }: ButtonProps) {
   return (
     <>
       <button
         className={styles.button}
         onClick={onClick}
-        style={{ width: width, color: color, background: backgroundColor }}
+        style={{
+          width: width,
+          color: color,
+          background: backgroundColor,
+          borderRadius: shape,
+          padding: padding
+        }}
         type={type}
       >
-        <i>
-          <MdKeyboardArrowRight style={{ verticalAlign: 'middle' }} />
-        </i>
+        <i>{icon ? icon : <MdKeyboardArrowRight />}</i>
         {`${text}`}
       </button>
     </>

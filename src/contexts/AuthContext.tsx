@@ -5,7 +5,7 @@ import {
   useEffect,
   useState
 } from 'react';
-import { setCookie, parseCookies } from 'nookies';
+import { setCookie, parseCookies, destroyCookie } from 'nookies';
 import { clientSideApi } from '../services/clientSideApi';
 import Router from 'next/router';
 import CryptoJS from 'crypto-js';
@@ -30,6 +30,7 @@ interface AuthContext {
   password: string;
   setPassword: Dispatch<SetStateAction<string>>;
   signIn({ email, password }: User): Promise<void>;
+  handleLogout(): void;
 }
 
 export const AuthContext = createContext({} as AuthContext);
@@ -41,6 +42,11 @@ export function AuthProvider({ children }) {
   const [errorMessage, setErrorMessage] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  function handleLogout() {
+    destroyCookie({}, 'nextauth.token');
+    destroyCookie({}, 'userInfo');
+  }
 
   useEffect(() => {
     const { 'nextauth.token': authToken } = parseCookies();
@@ -67,11 +73,12 @@ export function AuthProvider({ children }) {
 
           const encoded = CryptoJS.AES.encrypt(
             JSON.stringify(user),
-            'secret key 123'
+            process.env.NEXT_PUBLIC_ENC
           ).toString();
 
           setToken(token);
           setAuthenticated(true);
+
           setCookie(undefined, 'nextauth.token', token, {
             maxAge: 60 * 60 * 1 // 1 hour to expire
           });
@@ -107,7 +114,8 @@ export function AuthProvider({ children }) {
         setErrorMessage,
         authenticated,
         setAuthenticated,
-        signIn
+        signIn,
+        handleLogout
       }}
     >
       {children}

@@ -1,11 +1,12 @@
 .navigationContainer {
   font-family: var(--inter);
-
+  
   .headerWrapper {
     margin-top: 3rem;
     margin-bottom: 1rem;
     margin-left: 1rem;
     margin-right: 1rem;
+    cursor: default;
   }
 
   h4 {

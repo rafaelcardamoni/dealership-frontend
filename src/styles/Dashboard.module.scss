@@ -1,107 +1,63 @@
 .container {
-  display: grid;
-  grid-template-columns: 1fr 4fr;
-  grid-template-areas: "sidebar content";
-  height: 100vh;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
 
   .sidebar {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    overflow-y: scroll;
-    grid-area: sidebar;
-    font-family: var(--inter);
-    background-color: var(--sidebar);
-    padding: 1rem;
+    position: relative;
+    width: 345px;
     min-width: 280px;
-    height: 100%;
+    overflow-y: hidden;
+    background-color: var(--sidebar);
+  }
 
-    &::-webkit-scrollbar {
-      width: 8px;
-    }
+  .contentContainer {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 5fr;
+    grid-template-areas: "dashboardHeader"
+                        "content";
+    background-color: var(--content);
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    grid-area: dashboardHeader;
+    background-color: var(--white);
+    border-bottom: var(--border-light);
+    box-shadow: var(--box-shadow);
+    padding: 1rem 2rem;
     
-    &::-webkit-scrollbar-track {
-      background: var(--sidebar);
-      border: 1px solid var(--sidebar);
-    }
-     
-    &::-webkit-scrollbar-thumb {
-      background: var(--sidebar);
-      border: 1px solid var(--gray-400);
-    }
-    
-    &::-webkit-scrollbar-thumb:hover {
-      background: var(--sidebar);
+    .reload {
+      display: flex;
+      gap: .5rem;
+      height: 1.8rem;
+      width: auto;
+      padding: .3rem 1rem 0 1rem;
+      font-size: .9rem;
+      border-radius: var(--rounded-3xl);
+      background-color: var(--sidebar);
+      color: var(--white);
+      cursor: pointer;
+      transition: filter .2s;
+
+      i {
+        font-size: 1.1rem;
+        font-weight: thin;
+      }
+
+      &:hover {
+        filter: brightness(.8);
+      }
     }
   }
 
   .content {
-    grid-area: content;
-    background-color: var(--white);
+    margin: 1rem 2rem;
+    overflow-y: hidden;
+    overflow-x: scroll;
   }
-}
-
-.top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 0 1rem;
-
-  .settings {
-    position: relative;
-
-    button {
-      color: var(--gray-300);
-      font-size: 1.2rem;
-  
-      &:hover {
-        cursor: pointer;
-      }
-    }
-
-    .fade-enter {
-      opacity: 0;
-      transition: ease-in .2s;
-    }
-
-    .fade-enter-active {
-      opacity: 1;
-    }
-
-    .fade-exit {
-      opacity: 1;
-      transition: opacity .2s;
-    }
-
-    .fade-exit-active {
-      opacity: 0;
-    }
-  }
-}
-
-.userInfo {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.5rem;
-  text-align: center;
-  margin: 1rem 0;
-
-  span {
-    font-size: .875rem;
-    font-weight: 500;
-    color: white;
-  }
-
-  p {
-    margin: 0;
-    font-size: .8rem;
-    color: var(--gray-400);
-
-  }
-
-}
-
-.navigation {
-  width: 100%;
-  height: auto;
 }

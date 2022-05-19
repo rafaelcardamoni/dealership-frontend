@@ -1,18 +1,10 @@
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 import { GetServerSideProps } from 'next';
-import { destroyCookie, parseCookies } from 'nookies';
-import { CSSTransition } from 'react-transition-group';
-import { Logo } from '../../components/Logo';
-import { DropdownMenu } from '../../components/DropdownMenu';
-import { DropdownItem } from '../../components/DropdownItem';
-import { DashboardNavigation } from '../../components/DashboardNavigation';
-import { DashboardNavigationItem } from '../../components/DashboardNavigationItem';
-import { IoMdSettings } from 'react-icons/io';
-import { BiLogOut, BiUserCircle } from 'react-icons/bi';
-import { AiOutlineUserAdd } from 'react-icons/ai';
-import { MdManageSearch } from 'react-icons/md';
-import { IoMdAddCircleOutline } from 'react-icons/io';
-import { RiUserSearchLine } from 'react-icons/ri';
+import { parseCookies } from 'nookies';
+import { DashboardSidebar } from '../../components/DashboardSidebar';
+import { DashboardAllVehicles } from '../../components/DashboardAllVehicles';
+import { AiOutlineReload } from 'react-icons/ai';
 import jwt from 'jsonwebtoken';
 import CryptoJS from 'crypto-js';
 import styles from '../../styles/Dashboard.module.scss';
@@ -23,109 +15,37 @@ interface User {
 }
 
 export default function Dashboard({ userInfo }) {
-  // const user: User = JSON.parse(userInfo);
+  const [selected, setSelected] = useState('allVehicles');
+  const router = useRouter();
   const user: User = userInfo;
-  const [open, setOpen] = useState(false);
-
-  function handleLogout() {
-    destroyCookie({}, 'nextauth.token');
-  }
 
   return (
     <div className={styles.container}>
       <section className={styles.sidebar}>
-        <div className={styles.top}>
-          <Logo color="white" iconOnly={true} />
-
-          <div className={styles.settings}>
-            <button onClick={() => setOpen(!open)} className="ripple">
-              <IoMdSettings />
-            </button>
-            <CSSTransition
-              in={open}
-              timeout={600}
-              classNames={{
-                enter: styles['fade-enter'],
-                enterActive: styles['fade-enter-active'],
-                exit: styles['fade-exit'],
-                exitActive: styles['fade-exit-active']
-              }}
-              unmountOnExit
-            >
-              <DropdownMenu open={open} setOpen={setOpen}>
-                <DropdownItem
-                  href=""
-                  icon={
-                    <BiUserCircle
-                      style={{ verticalAlign: 'middle', fontSize: '1.3rem' }}
-                    />
-                  }
-                >
-                  Perfil
-                </DropdownItem>
-
-                <DropdownItem
-                  href=""
-                  icon={
-                    <BiLogOut
-                      style={{ verticalAlign: 'middle', fontSize: '1.3rem' }}
-                    />
-                  }
-                  onClick={handleLogout}
-                >
-                  Sair
-                </DropdownItem>
-              </DropdownMenu>
-            </CSSTransition>
-          </div>
-        </div>
-
-        <div className={styles.userInfo}>
-          <span>{user.fullname}</span>
-          <p>{user.email}</p>
-        </div>
-
-        <div className={styles.navigation}>
-          <DashboardNavigation
-            title="Dashboard"
-            subtitle="Gerenciamento de veículos"
+        <DashboardSidebar user={user} setSelected={setSelected} />
+      </section>
+      <section className={styles.contentContainer}>
+        <div className={styles.header}>
+          {selected === 'allVehicles' ? <h1>Todos os veículos</h1> : null}
+          {selected === 'addVehicle' ? <h1>Adicionar novo carro</h1> : null}
+          {selected === 'allUsers' ? <h1>Todos os usuários</h1> : null}
+          {selected === 'addUser' ? <h1>Cadastrar novo usuário</h1> : null}
+          <button
+            className={styles.reload}
+            onClick={() => {
+              router.reload();
+            }}
           >
-            <DashboardNavigationItem
-              href="/dashboard"
-              icon={<MdManageSearch />}
-            >
-              Visão geral
-            </DashboardNavigationItem>
-            <DashboardNavigationItem
-              href="/dashboard"
-              icon={<IoMdAddCircleOutline />}
-            >
-              Adicionar veículo
-            </DashboardNavigationItem>
-          </DashboardNavigation>
-
-          <DashboardNavigation
-            title="Usuários"
-            subtitle="Gerenciamento de usuários"
-          >
-            <DashboardNavigationItem
-              href="/dashboard"
-              icon={<RiUserSearchLine />}
-            >
-              Lista de usuários
-            </DashboardNavigationItem>
-
-            <DashboardNavigationItem
-              href="/dashboard"
-              icon={<AiOutlineUserAdd />}
-            >
-              Adicionar usuário
-            </DashboardNavigationItem>
-          </DashboardNavigation>
+            <i>
+              <AiOutlineReload />
+            </i>
+            <span>Atualizar</span>
+          </button>
+        </div>
+        <div className={styles.content}>
+          {selected === 'allVehicles' ? <DashboardAllVehicles /> : null}
         </div>
       </section>
-
-      <section className={styles.content}></section>
     </div>
   );
 }
@@ -133,9 +53,6 @@ export default function Dashboard({ userInfo }) {
 export const getServerSideProps: GetServerSideProps = async ctx => {
   const { ['nextauth.token']: authToken, ['userInfo']: encoded } =
     parseCookies(ctx);
-
-  const bytes = CryptoJS.AES.decrypt(encoded, 'secret key 123');
-  const userInfo = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
 
   let isValid: boolean;
 
@@ -164,7 +81,10 @@ export const getServerSideProps: GetServerSideProps = async ctx => {
     };
   }
 
+  const bytes = CryptoJS.AES.decrypt(encoded, process.env.NEXT_PUBLIC_ENC);
+  const userInfo = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+
   return {
-    props: { userInfo }
+    props: { userInfo } || {}
   };
 };

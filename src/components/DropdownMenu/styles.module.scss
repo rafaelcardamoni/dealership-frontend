@@ -1,11 +1,14 @@
 .dropdown {
   position: absolute;
   top: 30px;
-  left: -100px;
+  left: -75px;
   height: auto;
+  width: 160px;
   transform: translateX(-45%);
   background-color: var(--white);
   border-radius: var(--rounded-md);
+  box-shadow: var(--box-shadow);
+  border: var(--border-light);
   overflow: hidden;
   padding: .5rem 0;
 }

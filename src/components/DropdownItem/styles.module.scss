@@ -9,7 +9,7 @@
   transition: background var(--speed);
   padding: .75rem;
   gap: 1rem;
-  min-width: 210px;
+  width: inherit;
 
   span {
     line-height: 1.2rem;

@@ -23,6 +23,7 @@ main {
   --dark-gray: rgba(4, 17, 29, 0.75);
   --dark-blue: #0e1418;
   --sidebar: #0f172a;
+  --content: #f1f5f9;
   --gray-50: #f0efef;
   --gray-100: #e3e4e5;
   --gray-200: #e1e1e6;
@@ -57,21 +58,11 @@ main {
   --rounded-2xl: 1rem;
   --rounded-3xl: 1.5rem;
   --speed: .5s;
-  --click-circle-effect-background: rgba(111,148,182,0.1);
-  --click-circle-effect-animation: click-effect-circle 0.3s forwards;
-}
-
-@keyframes click-effect-circle {
-	0% {
-		transform: scale3d(0.3, 0.3, 1);
-	}
-	25%, 50% {
-		opacity: 1;
-	}
-	100% {
-		opacity: 0;
-		transform: scale3d(1.2, 1.2, 1);
-	}
+  --text-title: #363f5f;
+  --text-body: #969cb3;
+  --input-background: #e7e9ee;
+  --border-default: #d7d7d7;
+  --shape: #ffffff;
 }
 
 * {
@@ -113,31 +104,7 @@ ul, li {
 button, input[type=text] {
   position: relative;
   all: unset;
-  transition: 0s 3s;
-}
-
-button::after {
-  content: '';
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	margin: -35px 0 0 -35px;
-	width: 70px;
-	height: 70px;
-	border-radius: 50%;
-	opacity: 0;
-	pointer-events: none;
-  transition: 0s;
-}
-
-.ripple::after {
-  transition: 0s;
-  background: rgba(111,148,182,0.1);
-}
-
-.ripple:active::after {
-  transition: 0s;
-  animation: click-effect-circle .3s forwards;
+  transition: color 0.7s;
 }
 
 a {
@@ -151,8 +118,6 @@ a {
     color: var(--red-500);
   }
 }
-
-
 
 // swiper styles
 .swiper-container {
