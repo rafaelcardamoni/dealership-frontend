@@ -16,7 +16,7 @@
     width: 100%;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 5fr;
+    grid-template-rows: 5rem auto;
     grid-template-areas: "dashboardHeader"
                         "content";
     background-color: var(--content);
@@ -24,19 +24,26 @@
 
   .header {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     grid-area: dashboardHeader;
     background-color: var(--white);
     border-bottom: var(--border-light);
     box-shadow: var(--box-shadow);
     padding: 1rem 2rem;
+    height: 5rem;
+
+    h1 {
+      white-space: nowrap;
+      margin-right: 2rem;
+    }
     
     .reload {
       display: flex;
       gap: .5rem;
       height: 1.8rem;
       width: auto;
-      padding: .3rem 1rem 0 1rem;
+      padding: .5rem 1rem 0 1rem;
       font-size: .9rem;
       border-radius: var(--rounded-3xl);
       background-color: var(--sidebar);
@@ -49,6 +56,7 @@
         font-weight: thin;
       }
 
+
       &:hover {
         filter: brightness(.8);
       }
@@ -57,7 +65,22 @@
 
   .content {
     margin: 1rem 2rem;
-    overflow-y: hidden;
-    overflow-x: scroll;
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 1350px) {
+  .container {
+    .content {
+      overflow-x: scroll;
+    }
+
+    .header {
+      .reload {
+        span {
+          display: none;
+        }
+      }
+    }
   }
 }

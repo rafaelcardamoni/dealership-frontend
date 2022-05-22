@@ -20,6 +20,8 @@ export function DashboardAllVehicles() {
             <th>Versão</th>
             <th>Preço</th>
             <th>Data da inserção</th>
+            <th>Editar</th>
+            <th>Excluir</th>
           </tr>
         </thead>
 
@@ -42,7 +44,9 @@ export function DashboardAllVehicles() {
                   )}
                 </td>
                 <td>
-                  <button type="submit">Editar</button>
+                  <button type="submit" className={styles.edit}>
+                    <AiOutlineEdit />
+                  </button>
                 </td>
                 <td>
                   <button
@@ -53,6 +57,7 @@ export function DashboardAllVehicles() {
                         .delete(
                           `${process.env.NEXT_PUBLIC_BASE_URL}/api/cars/delete/${car.id}`
                         )
+                        .then(() => router.reload())
                         .catch(e => {
                           console.log(e.message);
                         });

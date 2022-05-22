@@ -1,0 +1,41 @@
+.container {
+  background: var(--white);
+  padding: 2rem;
+  border: var(--border-light);
+  box-shadow: var(--box-shadow);
+  font-weight: normal;
+  font-family: var(--inter);
+
+  form {
+    height: inherit;
+    width: inherit;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+  
+  .inputWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    margin: 1rem;
+  }
+
+  label {
+    color: var(--sidebar);
+    font-size: .9rem;
+    font-weight: 400;
+  }
+
+  input {
+    padding: .5rem;
+    border-radius: var(--rounded-md);
+    border: 1px solid var(--gray-300);
+    width: 300px;
+
+    &:focus {
+      outline: none;
+      border: 1px solid var(--sidebar);
+      box-shadow: var(--box-shadow);
+    }
+  }
+}

@@ -8,6 +8,7 @@ import { AiOutlineReload } from 'react-icons/ai';
 import jwt from 'jsonwebtoken';
 import CryptoJS from 'crypto-js';
 import styles from '../../styles/Dashboard.module.scss';
+import { DashboardAddVehicle } from '../../components/DashboardAddVehicle';
 
 interface User {
   fullname: string;
@@ -44,6 +45,7 @@ export default function Dashboard({ userInfo }) {
         </div>
         <div className={styles.content}>
           {selected === 'allVehicles' ? <DashboardAllVehicles /> : null}
+          {selected === 'addVehicle' ? <DashboardAddVehicle /> : null}
         </div>
       </section>
     </div>
