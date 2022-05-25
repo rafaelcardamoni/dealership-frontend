@@ -5,32 +5,41 @@ interface ButtonProps {
   onClick?: () => void;
   text: string;
   width?: string;
+  height?: string;
   color?: string;
   backgroundColor?: string;
   type?: 'submit' | 'reset' | 'button' | undefined;
   shape?: string;
   icon?: React.ReactNode;
   padding?: string;
+  hoverColorClass?: 'red' | 'textColorFilter' | undefined;
 }
 
 export function Button({
   onClick,
   text,
   width,
+  height,
   color,
   padding,
   backgroundColor,
   type,
   shape,
-  icon
+  icon,
+  hoverColorClass
 }: ButtonProps) {
   return (
     <>
       <button
-        className={styles.button}
+        className={
+          hoverColorClass
+            ? `${styles.button} ${styles[hoverColorClass]}`
+            : styles.button
+        }
         onClick={onClick}
         style={{
           width: width,
+          height: height,
           color: color,
           background: backgroundColor,
           borderRadius: shape,

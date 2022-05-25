@@ -37,30 +37,6 @@
       white-space: nowrap;
       margin-right: 2rem;
     }
-    
-    .reload {
-      display: flex;
-      gap: .5rem;
-      height: 1.8rem;
-      width: auto;
-      padding: .5rem 1rem 0 1rem;
-      font-size: .9rem;
-      border-radius: var(--rounded-3xl);
-      background-color: var(--sidebar);
-      color: var(--white);
-      cursor: pointer;
-      transition: filter .2s;
-
-      i {
-        font-size: 1.1rem;
-        font-weight: thin;
-      }
-
-
-      &:hover {
-        filter: brightness(.8);
-      }
-    }
   }
 
   .content {
@@ -73,14 +49,6 @@
   .container {
     .content {
       overflow-x: scroll;
-    }
-
-    .header {
-      .reload {
-        span {
-          display: none;
-        }
-      }
     }
   }
 }

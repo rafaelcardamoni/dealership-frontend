@@ -9,6 +9,7 @@ import jwt from 'jsonwebtoken';
 import CryptoJS from 'crypto-js';
 import styles from '../../styles/Dashboard.module.scss';
 import { DashboardAddVehicle } from '../../components/DashboardAddVehicle';
+import { Button } from '../../components/Button';
 
 interface User {
   fullname: string;
@@ -31,17 +32,18 @@ export default function Dashboard({ userInfo }) {
           {selected === 'addVehicle' ? <h1>Adicionar novo carro</h1> : null}
           {selected === 'allUsers' ? <h1>Todos os usuários</h1> : null}
           {selected === 'addUser' ? <h1>Cadastrar novo usuário</h1> : null}
-          <button
-            className={styles.reload}
+          <Button
+            shape="var(--rounded-3xl)"
+            padding=".5rem 1rem .3rem 1rem"
+            text="Atualizar"
+            color="var(--white)"
+            backgroundColor="var(--sidebar)"
+            hoverColorClass="textColorFilter"
+            icon={<AiOutlineReload />}
             onClick={() => {
               router.reload();
             }}
-          >
-            <i>
-              <AiOutlineReload />
-            </i>
-            <span>Atualizar</span>
-          </button>
+          />
         </div>
         <div className={styles.content}>
           {selected === 'allVehicles' ? <DashboardAllVehicles /> : null}

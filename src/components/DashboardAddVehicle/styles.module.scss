@@ -6,10 +6,14 @@
   font-weight: normal;
   font-family: var(--inter);
 
+  h2 {
+    margin-bottom: 1rem;
+  }
+
   form {
     height: inherit;
-    width: inherit;
-    display: grid;
+    display: flex;
+    flex-direction: column;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   }
   
@@ -23,19 +27,25 @@
   label {
     color: var(--sidebar);
     font-size: .9rem;
-    font-weight: 400;
+    font-weight: 500;
   }
 
   input {
     padding: .5rem;
     border-radius: var(--rounded-md);
     border: 1px solid var(--gray-300);
-    width: 300px;
+    margin-right: 2rem;
 
     &:focus {
       outline: none;
-      border: 1px solid var(--sidebar);
+      border: 2px solid var(--sidebar);
       box-shadow: var(--box-shadow);
     }
+  }
+
+  .buttons {
+    display: flex;
+    margin-top: 1rem;
+    margin-left: 1rem;
   }
 }
