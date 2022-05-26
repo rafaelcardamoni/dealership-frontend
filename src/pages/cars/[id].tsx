@@ -144,8 +144,8 @@ export default function CarDetails({ data }) {
                   </span>
                 </div>
                 <div className={styles.buttons}>
-                  <Button text="Entre em contato" width="180px" />
-                  <Button text="Compartilhe" onClick={shareURL} width="180px" />
+                  <Button text="Entre em contato" height="25px" />
+                  <Button text="Compartilhe" onClick={shareURL} height="25px" />
                 </div>
                 <div className={styles.logo}></div>
               </div>

@@ -13,6 +13,7 @@ interface ButtonProps {
   icon?: React.ReactNode;
   padding?: string;
   hoverColorClass?: 'red' | 'textColorFilter' | undefined;
+  textAlign?: 'center' | 'unset' | undefined;
 }
 
 export function Button({
@@ -26,7 +27,8 @@ export function Button({
   type,
   shape,
   icon,
-  hoverColorClass
+  hoverColorClass,
+  textAlign
 }: ButtonProps) {
   return (
     <>
@@ -43,7 +45,8 @@ export function Button({
           color: color,
           background: backgroundColor,
           borderRadius: shape,
-          padding: padding
+          padding: padding,
+          justifyContent: textAlign
         }}
         type={type}
       >

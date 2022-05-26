@@ -39,6 +39,13 @@
     width: 75%;
     padding: .5rem;
     margin: .5rem auto;
+    border: 1px solid var(--gray-400);
+    transition: .2s ease-in;
+
+    &:focus {
+      border: 1px solid var(--sidebar);
+      transition: .2s ease-in;
+    }
   }
 
   button {

@@ -138,14 +138,14 @@ export function DashboardAddVehicle() {
               <Input name="road_consumption" type="number" required />
             </div>
           </>
-        ) : (
+        ) : typeValue === 'Elétrico' ? (
           <>
             <div className={styles.inputWrapper}>
               <label htmlFor="range">Alcance</label>
               <Input name="range" type="number" required />
             </div>
           </>
-        )}
+        ) : null}
 
         <div className={styles.inputWrapper}>
           <label htmlFor="color">Cor</label>
@@ -165,6 +165,8 @@ export function DashboardAddVehicle() {
             backgroundColor="var(--sidebar)"
             shape="var(--rounded-3xl)"
             height="23px"
+            width="150px"
+            textAlign="center"
           />
         </div>
       </Form>

@@ -10,13 +10,16 @@ import CryptoJS from 'crypto-js';
 import styles from '../../styles/Dashboard.module.scss';
 import { DashboardAddVehicle } from '../../components/DashboardAddVehicle';
 import { Button } from '../../components/Button';
+import { DashboardAllUsers } from '../../components/DashboardAllUsers';
+import { clientSideApi } from '../../services/clientSideApi';
+import { DashboardAddUser } from '../../components/DashboardAddUser';
 
 interface User {
   fullname: string;
   email: string;
 }
 
-export default function Dashboard({ userInfo }) {
+export default function Dashboard({ userInfo, users }) {
   const [selected, setSelected] = useState('allVehicles');
   const router = useRouter();
   const user: User = userInfo;
@@ -48,6 +51,8 @@ export default function Dashboard({ userInfo }) {
         <div className={styles.content}>
           {selected === 'allVehicles' ? <DashboardAllVehicles /> : null}
           {selected === 'addVehicle' ? <DashboardAddVehicle /> : null}
+          {selected === 'allUsers' ? <DashboardAllUsers users={users} /> : null}
+          {selected === 'addUser' ? <DashboardAddUser /> : null}
         </div>
       </section>
     </div>
@@ -55,6 +60,10 @@ export default function Dashboard({ userInfo }) {
 }
 
 export const getServerSideProps: GetServerSideProps = async ctx => {
+  const users = await clientSideApi
+    .get('/api/users')
+    .then(response => response.data);
+
   const { ['nextauth.token']: authToken, ['userInfo']: encoded } =
     parseCookies(ctx);
 
@@ -89,6 +98,6 @@ export const getServerSideProps: GetServerSideProps = async ctx => {
   const userInfo = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
 
   return {
-    props: { userInfo } || {}
+    props: { userInfo, users } || {}
   };
 };
