@@ -1,0 +1,116 @@
+.container {
+  width: 100vw;
+  height: auto;
+  
+  .formContainer {
+    margin: 0 auto;
+    padding: 2rem;
+
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    form {
+      width: 750px;
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto;
+    }
+
+    .firstSection {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .secondSection {
+      display: flex;
+      flex-direction: row;
+    }
+  
+    .inputWrapper {
+      width: 720px;
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+      margin: 1rem;
+    }
+  
+    label {
+      color: var(--sidebar);
+      font-size: .9rem;
+      font-weight: 500;
+    }
+  
+    input {
+      height: 40px;
+      padding: .5rem;
+      border-radius: var(--rounded-md);
+      border: 1px solid var(--gray-300);
+      transition: .2s ease-in;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 500;
+      
+      &:focus {
+        outline: none;
+        border: 1px solid var(--sidebar);
+        box-shadow: var(--box-shadow);
+        transition: .2s ease-in;
+      }
+    }
+  
+    textarea {
+      height: 150px;
+      padding: .5rem;
+      border-radius: var(--rounded-md);
+      border: 1px solid var(--gray-300);
+      transition: .2s ease-in;
+      box-sizing: border-box;
+      resize: none;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 500;
+
+      &:focus {
+        outline: none;
+        border: 1px solid var(--sidebar);
+        box-shadow: var(--box-shadow);
+        transition: .2s ease-in;
+      }
+    }
+
+    button {
+      margin: 1rem  auto;
+    }
+  }
+  
+}
+
+
+@media (max-width: 800px) {
+  .container {
+
+    .formContainer {
+
+      h1 {
+        font-size: 1.3rem;
+      }
+
+      form {
+        width: 100%;
+        
+        .firstSection {
+          flex-direction: column;
+        }
+    
+        .secondSection {
+          flex-direction: column;
+        }
+
+        .inputWrapper {
+          width: unset;
+        }
+      }
+    }
+  }
+}

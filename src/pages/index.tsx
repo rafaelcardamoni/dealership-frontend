@@ -57,7 +57,11 @@ export default function Home({ data }) {
 
           <Link href="/inventory">
             <a>
-              <Button text="Ver todos os veículos" />
+              <Button
+                text="Ver todos os veículos"
+                padding=".7rem 1rem .5rem .5rem"
+                hoverColorClass="textColorFilter"
+              />
             </a>
           </Link>
         </section>

@@ -54,7 +54,13 @@ export default function Login() {
             </Link>
           </div>
 
-          <Button type="submit" text="Entrar" />
+          <Button
+            type="submit"
+            text="Entrar"
+            padding=".7rem 1rem .7rem .5rem"
+            hoverColorClass="textColorFilter"
+            icon={' '}
+          />
         </Form>
       </div>
     </div>

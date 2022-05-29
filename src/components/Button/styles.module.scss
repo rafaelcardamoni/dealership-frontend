@@ -3,7 +3,6 @@
   width: fit-content;
   background-color: var(--dark-blue);
   color: var(--white);
-  padding: .7rem 1rem .5rem .5rem;
   transition: .15s;
   font-weight: normal;
   cursor: pointer;
@@ -18,7 +17,7 @@
 
 .red {
   &:hover {
-    color: var(--red-500);
+    background-color: var(--red-500);
   }
 }
 

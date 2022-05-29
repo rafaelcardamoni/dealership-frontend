@@ -14,5 +14,10 @@ export function Input({ name, ...props }) {
     });
   }, [fieldName, registerField]);
 
-  return <input ref={inputRef} {...props} />;
+  return (
+    <>
+      <input ref={inputRef} {...props} />
+      {error && <span style={{ color: 'var(--red-500)' }}>{error}</span>}
+    </>
+  );
 }
