@@ -64,7 +64,7 @@ export function SearchFilters({
             <div>
               <input
                 type="radio"
-                name={'make'}
+                name={'filter'}
                 value={make.toString()}
                 onChange={event => {
                   if (event.target.checked === true) {
@@ -72,7 +72,7 @@ export function SearchFilters({
                   } else handleCheckboxFilter('');
                 }}
               />
-              <label htmlFor="make">
+              <label htmlFor="filter">
                 {make.toString()}{' '}
                 {`(${carMakeCollection.get(make.toString())})`}
               </label>
@@ -114,7 +114,7 @@ export function SearchFilters({
           <slot key={model} className={styles.slot}>
             <input
               type="radio"
-              name={'model'}
+              name={'filter'}
               value={model.toString()}
               onChange={event => {
                 if (event.target.checked === true) {
@@ -122,7 +122,7 @@ export function SearchFilters({
                 } else handleCheckboxFilter('');
               }}
             />
-            <label htmlFor="model">
+            <label htmlFor="filter">
               {model.toString()}{' '}
               {`(${carModelCollection.get(model.toString())})`}
             </label>
@@ -163,7 +163,7 @@ export function SearchFilters({
           <slot key={type} className={styles.slot}>
             <input
               type="radio"
-              name={'type'}
+              name={'filter'}
               value={type.toString()}
               onChange={event => {
                 if (event.target.checked === true) {
@@ -171,7 +171,7 @@ export function SearchFilters({
                 } else handleCheckboxFilter('');
               }}
             />
-            <label htmlFor="type">
+            <label htmlFor="filter">
               {type.toString()} {`(${carTypeCollection.get(type.toString())})`}
             </label>
           </slot>
@@ -185,7 +185,7 @@ export function SearchFilters({
           <slot key={color} className={styles.slot}>
             <input
               type="radio"
-              name={'color'}
+              name={'filter'}
               value={color.toString()}
               onChange={event => {
                 if (event.target.checked === true) {
@@ -193,7 +193,7 @@ export function SearchFilters({
                 } else handleCheckboxFilter('');
               }}
             />
-            <label htmlFor="color">
+            <label htmlFor="filter">
               {color.toString()}{' '}
               {`(${carColorCollection.get(color.toString())})`}
             </label>
@@ -208,7 +208,7 @@ export function SearchFilters({
           <slot key={transmission} className={styles.slot}>
             <input
               type="radio"
-              name={'transmission'}
+              name={'filter'}
               value={transmission.toString()}
               onChange={event => {
                 if (event.target.checked === true) {
@@ -216,7 +216,7 @@ export function SearchFilters({
                 } else handleCheckboxFilter('');
               }}
             />
-            <label htmlFor="transmission">
+            <label htmlFor="filter">
               {transmission.toString()}{' '}
               {`(${carTransmissionCollection.get(transmission.toString())})`}
             </label>
@@ -231,7 +231,7 @@ export function SearchFilters({
           <slot key={fuel} className={styles.slot}>
             <input
               type="radio"
-              name={'fuel'}
+              name={'filter'}
               value={fuel.toString()}
               onChange={event => {
                 if (event.target.checked === true) {
@@ -239,7 +239,7 @@ export function SearchFilters({
                 } else handleCheckboxFilter('');
               }}
             />
-            <label htmlFor="fuel">
+            <label htmlFor="filter">
               {fuel.toString()} {`(${carFuelCollection.get(fuel.toString())})`}
             </label>
           </slot>

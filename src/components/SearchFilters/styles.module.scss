@@ -17,6 +17,10 @@
       margin: -.15rem auto;
       transition: .15s ease-in;
 
+      &:hover {
+        background-color: var(--content);
+      }
+
       &:checked {
         background: var(--dark-gray);
       }

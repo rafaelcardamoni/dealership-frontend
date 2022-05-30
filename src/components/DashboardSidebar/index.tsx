@@ -34,6 +34,7 @@ export function DashboardSidebar({ user, setSelected }: DashboardSidebarProps) {
   const [open, setOpen] = useState(false);
   const { handleLogout } = useContext(AuthContext);
   const ref = useRef<any>();
+  const nodeRef = useRef(null);
 
   useEffect(() => {
     function handleClickOutsideDropdown(e) {
@@ -78,6 +79,7 @@ export function DashboardSidebar({ user, setSelected }: DashboardSidebarProps) {
                 exitActive: styles['fade-exit-active']
               }}
               unmountOnExit
+              nodeRef={nodeRef}
             >
               <DropdownMenu>
                 <DropdownItem

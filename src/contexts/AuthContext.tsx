@@ -14,6 +14,7 @@ interface User {
   fullname?: string;
   email: string;
   password?: string;
+  rememberPassword?: string;
 }
 
 interface AuthContext {
@@ -29,7 +30,7 @@ interface AuthContext {
   setEmail: Dispatch<SetStateAction<string>>;
   password: string;
   setPassword: Dispatch<SetStateAction<string>>;
-  signIn({ email, password }: User): Promise<void>;
+  signIn({ email, password }: User, formRef?): Promise<void>;
   handleLogout(): void;
 }
 
@@ -56,7 +57,7 @@ export function AuthProvider({ children }) {
     }
   }, []);
 
-  async function signIn({ email, password }: User) {
+  async function signIn({ email, password, rememberPassword }: User, formRef) {
     clientSideApi
       .post('/api/login', {
         email: email,
@@ -64,6 +65,7 @@ export function AuthProvider({ children }) {
       })
       .then(result => {
         if (result.status === 200) {
+          formRef.current.reset();
           const { token } = result.data;
           const { name, email } = result.data;
           const user = {
@@ -79,12 +81,21 @@ export function AuthProvider({ children }) {
           setToken(token);
           setAuthenticated(true);
 
-          setCookie(undefined, 'nextauth.token', token, {
-            maxAge: 60 * 60 * 1 // 1 hour to expire
-          });
-          setCookie(undefined, 'userInfo', encoded, {
-            maxAge: 60 * 60 * 1 // 1 hour to expire
-          });
+          if (rememberPassword === 'true') {
+            setCookie(undefined, 'nextauth.token', token, {
+              maxAge: 315360000 // does not expire
+            });
+            setCookie(undefined, 'userInfo', encoded, {
+              maxAge: 315360000 // does not expire
+            });
+          } else {
+            setCookie(undefined, 'nextauth.token', token, {
+              maxAge: 60 * 60 * 1 // 1 hour to expire
+            });
+            setCookie(undefined, 'userInfo', encoded, {
+              maxAge: 60 * 60 * 1 // 1 hour to expire
+            });
+          }
 
           Router.push('/dashboard');
         } else {
@@ -95,6 +106,14 @@ export function AuthProvider({ children }) {
         if (e.response) {
           setError(true);
           setErrorMessage(e.response.data.error);
+          formRef.current.reset();
+
+          const errorMessages = {
+            email: '',
+            password: 'E-mail ou senha incorreta'
+          };
+
+          formRef.current.setErrors(errorMessages);
         }
       });
   }

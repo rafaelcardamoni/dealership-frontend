@@ -56,6 +56,11 @@
     margin: 1rem auto;
     text-align: center;
   }
+
+  
+  div > span {
+    margin-left: 3.5rem;
+  }
 }
 
 .options {
@@ -64,6 +69,8 @@
   justify-content: space-around;
 
   .checkbox {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -85,18 +92,15 @@
   .formContainer {
     border: none;
     box-shadow: none;
-    width: 100%;
   }
 }
 
 @media (max-width: 650px) {
-
   .options {
     label, a {
       font-size: .8rem;
     }
   }
-
 }
 
 @media (max-width: 420px) {
@@ -135,6 +139,9 @@
     button {
       width: 83%;
     }
-  
+
+    div > span {
+      margin-left: 1rem;
+    }
   }
 }

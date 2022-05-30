@@ -23,7 +23,6 @@ export default function Contact() {
         abortEarly: false
       });
 
-      console.log(data);
       formRef.current.setErrors({});
       formRef.current.reset();
     } catch (err) {
