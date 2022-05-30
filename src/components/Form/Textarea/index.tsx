@@ -33,7 +33,8 @@ export function Textarea({ name, ...rest }) {
         <span
           style={{
             color: 'var(--red-500)',
-            marginBottom: '-1.5rem'
+            marginBottom: '-1.5rem',
+            fontSize: '.85rem'
           }}
         >
           {error}

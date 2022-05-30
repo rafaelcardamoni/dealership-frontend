@@ -17,7 +17,17 @@ export function Input({ name, ...props }) {
   return (
     <>
       <input ref={inputRef} {...props} />
-      {error && <span style={{ color: 'var(--red-500)' }}>{error}</span>}
+      {error && (
+        <span
+          style={{
+            color: 'var(--red-500)',
+            marginBottom: '-.5rem',
+            fontSize: '.85rem'
+          }}
+        >
+          {error}
+        </span>
+      )}
     </>
   );
 }

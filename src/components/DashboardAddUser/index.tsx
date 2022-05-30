@@ -52,6 +52,7 @@ export function DashboardAddUser() {
             height="23px"
             width="150px"
             textAlign="center"
+            padding=".7rem .8rem .5rem .5rem"
           />
         </div>
       </Form>
