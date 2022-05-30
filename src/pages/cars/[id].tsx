@@ -1,5 +1,5 @@
-import axios from 'axios';
 import { GetStaticPaths, GetStaticProps } from 'next';
+import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { Button } from '../../components/Button';
 import { CarImageCarouselMain } from '../../components/CarImageCarouselMain';
@@ -34,6 +34,7 @@ interface CarProps {
 export default function CarDetails({ data }) {
   const [carInfo] = useState<CarProps[]>(data);
   const [imageData, setImageData] = useState<any>([]);
+  const router = useRouter();
 
   useEffect(() => {
     carInfo.map(car => {
@@ -149,6 +150,9 @@ export default function CarDetails({ data }) {
                     height="25px"
                     padding=".7rem 1rem .5rem .5rem"
                     hoverColorClass="textColorFilter"
+                    onClick={() => {
+                      router.push('/contact-us');
+                    }}
                   />
                   <Button
                     text="Compartilhe"
