@@ -1,4 +1,5 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { Button } from '../../components/Button';
@@ -53,6 +54,14 @@ export default function CarDetails({ data }) {
 
   return (
     <div className={styles.container}>
+      <Head>
+        <title>
+          {carInfo.map(
+            car =>
+              `${car.make} ${car.model} ${car.trim} ${car.year} ${car.engine} | dealership`
+          )}
+        </title>
+      </Head>
       <section className={styles.banner}>
         <CarImageCarouselMain data={imageData} />
       </section>

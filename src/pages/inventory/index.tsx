@@ -1,4 +1,5 @@
 import { GetStaticProps } from 'next';
+import Head from 'next/head';
 import { useState } from 'react';
 import { CarsCardSmall } from '../../components/CarsCardSmall';
 import { SearchBar } from '../../components/SearchBar';
@@ -20,6 +21,9 @@ export default function Inventory({ cars }) {
 
   return (
     <div className={styles.container}>
+      <Head>
+        <title>Estoque | dealership</title>
+      </Head>
       <section className={styles.search}>
         <div className={styles.searchbarContainer}>
           <SearchBar handleSearchTerm={handleSearchTerm} />

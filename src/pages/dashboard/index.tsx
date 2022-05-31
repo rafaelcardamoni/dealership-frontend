@@ -13,6 +13,7 @@ import { Button } from '../../components/Button';
 import { DashboardAllUsers } from '../../components/DashboardAllUsers';
 import { clientSideApi } from '../../services/clientSideApi';
 import { DashboardAddUser } from '../../components/DashboardAddUser';
+import Head from 'next/head';
 
 interface User {
   fullname: string;
@@ -26,6 +27,9 @@ export default function Dashboard({ userInfo, users }) {
 
   return (
     <div className={styles.container}>
+      <Head>
+        <title>Dashboard | dealership</title>
+      </Head>
       <section className={styles.sidebar}>
         <DashboardSidebar user={user} setSelected={setSelected} />
       </section>

@@ -8,6 +8,7 @@ import Router from 'next/router';
 import Link from 'next/link';
 import styles from '../../styles/Login.module.scss';
 import * as Yup from 'yup';
+import Head from 'next/head';
 
 interface SignInProps {
   email: string;
@@ -56,6 +57,10 @@ export default function Login() {
 
   return (
     <div className={styles.container}>
+      <Head>
+        <title>Login | dealership</title>
+      </Head>
+
       <div className={styles.formContainer}>
         <div className={styles.header}>
           <Logo />
