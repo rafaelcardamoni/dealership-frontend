@@ -212,6 +212,7 @@ export const getStaticProps: GetStaticProps = async ctx => {
   return {
     props: {
       data
-    }
+    },
+    revalidate: 60 * 30 // 30 minutes in seconds
   };
 };
