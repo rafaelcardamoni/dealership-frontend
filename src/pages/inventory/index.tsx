@@ -1,10 +1,11 @@
 import { GetStaticProps } from 'next';
-import Head from 'next/head';
 import { useState } from 'react';
 import { CarsCardSmall } from '../../components/CarsCardSmall';
+import { Loading } from '../../components/Loading';
 import { SearchBar } from '../../components/SearchBar';
 import { SearchFilters } from '../../components/SearchFilters';
 import { getServerSideApi } from '../../services/serverSideApi';
+import Head from 'next/head';
 import styles from '../../styles/Inventory.module.scss';
 
 export default function Inventory({ cars }) {
@@ -24,6 +25,9 @@ export default function Inventory({ cars }) {
       <Head>
         <title>Estoque | dealership</title>
       </Head>
+
+      <Loading />
+
       <section className={styles.search}>
         <div className={styles.searchbarContainer}>
           <SearchBar handleSearchTerm={handleSearchTerm} />

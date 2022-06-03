@@ -1,10 +1,10 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
-import Head from 'next/head';
+import { getServerSideApi } from '../../services/serverSideApi';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { Button } from '../../components/Button';
 import { CarImageCarouselMain } from '../../components/CarImageCarouselMain';
-import { getServerSideApi } from '../../services/serverSideApi';
+import Head from 'next/head';
 import styles from '../../styles/[id].module.scss';
 
 interface CarProps {

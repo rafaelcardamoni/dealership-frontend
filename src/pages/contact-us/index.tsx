@@ -3,9 +3,9 @@ import { useRef } from 'react';
 import { Button } from '../../components/Button';
 import { Input } from '../../components/Form/Input';
 import { Textarea } from '../../components/Form/Textarea';
+import Head from 'next/head';
 import * as Yup from 'yup';
 import styles from '../../styles/contactUs.module.scss';
-import Head from 'next/head';
 
 export default function Contact() {
   const formRef = useRef(null);

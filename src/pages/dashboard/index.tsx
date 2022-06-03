@@ -5,15 +5,15 @@ import { parseCookies } from 'nookies';
 import { DashboardSidebar } from '../../components/DashboardSidebar';
 import { DashboardAllVehicles } from '../../components/DashboardAllVehicles';
 import { AiOutlineReload } from 'react-icons/ai';
-import jwt from 'jsonwebtoken';
-import CryptoJS from 'crypto-js';
-import styles from '../../styles/Dashboard.module.scss';
 import { DashboardAddVehicle } from '../../components/DashboardAddVehicle';
 import { Button } from '../../components/Button';
 import { DashboardAllUsers } from '../../components/DashboardAllUsers';
 import { clientSideApi } from '../../services/clientSideApi';
 import { DashboardAddUser } from '../../components/DashboardAddUser';
 import Head from 'next/head';
+import CryptoJS from 'crypto-js';
+import jwt from 'jsonwebtoken';
+import styles from '../../styles/Dashboard.module.scss';
 
 interface User {
   fullname: string;

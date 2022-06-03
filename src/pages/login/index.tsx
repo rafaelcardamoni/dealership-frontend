@@ -1,14 +1,15 @@
-import { Form } from '@unform/web';
 import { useContext, useEffect, useRef, useState } from 'react';
+import { Form } from '@unform/web';
 import { Input } from '../../components/Form/Input';
 import { AuthContext } from '../../contexts/AuthContext';
 import { Logo } from '../../components/Logo';
 import { Button } from '../../components/Button';
+import { Loading } from '../../components/Loading';
+import Head from 'next/head';
 import Router from 'next/router';
 import Link from 'next/link';
-import styles from '../../styles/Login.module.scss';
 import * as Yup from 'yup';
-import Head from 'next/head';
+import styles from '../../styles/Login.module.scss';
 
 interface SignInProps {
   email: string;
@@ -60,7 +61,7 @@ export default function Login() {
       <Head>
         <title>Login | dealership</title>
       </Head>
-
+      <Loading />
       <div className={styles.formContainer}>
         <div className={styles.header}>
           <Logo />
