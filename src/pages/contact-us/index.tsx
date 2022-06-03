@@ -6,6 +6,7 @@ import { Textarea } from '../../components/Form/Textarea';
 import Head from 'next/head';
 import * as Yup from 'yup';
 import styles from '../../styles/contactUs.module.scss';
+import { Loading } from '../../components/Loading';
 
 export default function Contact() {
   const formRef = useRef(null);
@@ -44,6 +45,8 @@ export default function Contact() {
       <Head>
         <title>Contato | dealership</title>
       </Head>
+
+      <Loading />
 
       <div className={styles.formContainer}>
         <h1>Entre em contato conosco</h1>

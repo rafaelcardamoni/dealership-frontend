@@ -14,6 +14,7 @@ import Head from 'next/head';
 import CryptoJS from 'crypto-js';
 import jwt from 'jsonwebtoken';
 import styles from '../../styles/Dashboard.module.scss';
+import { Loading } from '../../components/Loading';
 
 interface User {
   fullname: string;
@@ -30,6 +31,7 @@ export default function Dashboard({ userInfo, users }) {
       <Head>
         <title>Dashboard | dealership</title>
       </Head>
+
       <section className={styles.sidebar}>
         <DashboardSidebar user={user} setSelected={setSelected} />
       </section>

@@ -36,6 +36,7 @@
     h1 {
       white-space: nowrap;
       margin-right: 2rem;
+      color: var(--sidebar);
     }
   }
 
@@ -49,6 +50,35 @@
   .container {
     .content {
       overflow-x: scroll;
+    }
+  }
+}
+
+@media (max-width: 950px) {
+  .container {
+    display: unset;
+
+    .header {
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    .sidebar {
+      height: 5rem;
+      width: 100.5vw;
+      min-width: unset;
+      overflow-y: unset;
+    }
+
+    .contentContainer {
+      height: 100vh;
+      margin-top: -5rem;
+      background: white;
+
+      .content {
+        margin: .5rem;
+        overflow: unset;
+      }
     }
   }
 }

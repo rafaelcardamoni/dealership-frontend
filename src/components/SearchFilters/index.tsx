@@ -18,6 +18,8 @@ export function SearchFilters({
   const limit = 3;
   const [makeLimit, setMakeLimit] = useState(limit);
   const [modelLimit, setModelLimit] = useState(limit);
+  const [typeLimit, setTypeLimit] = useState(limit);
+  const [colorLimit, setColorLimit] = useState(limit);
 
   // array of unique car attributes
   const uniqueMakes = [...new Set(cars.map(car => car.make))];
@@ -158,7 +160,7 @@ export function SearchFilters({
 
       <h4>Carroceria</h4>
 
-      {uniqueTypes.map(type => {
+      {uniqueTypes.slice(0, typeLimit).map(type => {
         return (
           <slot key={type} className={styles.slot}>
             <input
@@ -178,9 +180,35 @@ export function SearchFilters({
         );
       })}
 
+      {uniqueTypes.length <= limit ? null : (
+        <button
+          onClick={() => {
+            typeLimit == uniqueTypes.length
+              ? setTypeLimit(limit)
+              : setTypeLimit(uniqueTypes.length);
+          }}
+          className={styles.expandOrShrink}
+        >
+          <span>
+            <i>
+              {typeLimit == limit ? (
+                <IoMdAddCircleOutline
+                  style={{ verticalAlign: 'middle', marginRight: '5px' }}
+                />
+              ) : (
+                <GrSubtractCircle
+                  style={{ verticalAlign: 'middle', marginRight: '5px' }}
+                />
+              )}
+            </i>
+            ver {typeLimit == limit ? 'mais' : 'menos'}
+          </span>
+        </button>
+      )}
+
       <h4>Cor</h4>
 
-      {uniqueColors.map(color => {
+      {uniqueColors.slice(0, colorLimit).map(color => {
         return (
           <slot key={color} className={styles.slot}>
             <input
@@ -200,6 +228,32 @@ export function SearchFilters({
           </slot>
         );
       })}
+
+      {uniqueColors.length <= limit ? null : (
+        <button
+          onClick={() => {
+            colorLimit == uniqueColors.length
+              ? setColorLimit(limit)
+              : setColorLimit(uniqueColors.length);
+          }}
+          className={styles.expandOrShrink}
+        >
+          <span>
+            <i>
+              {colorLimit == limit ? (
+                <IoMdAddCircleOutline
+                  style={{ verticalAlign: 'middle', marginRight: '5px' }}
+                />
+              ) : (
+                <GrSubtractCircle
+                  style={{ verticalAlign: 'middle', marginRight: '5px' }}
+                />
+              )}
+            </i>
+            ver {colorLimit == limit ? 'mais' : 'menos'}
+          </span>
+        </button>
+      )}
 
       <h4>Transmissão</h4>
 

@@ -3,12 +3,13 @@
   top: 30px;
   left: -75px;
   height: auto;
-  width: 160px;
+  width: auto;
+  white-space: nowrap;
   transform: translateX(-45%);
   background-color: var(--white);
   border-radius: var(--rounded-md);
   box-shadow: var(--box-shadow);
   border: var(--border-light);
   overflow: hidden;
-  padding: .5rem 0;
+  padding: 0 0;
 }

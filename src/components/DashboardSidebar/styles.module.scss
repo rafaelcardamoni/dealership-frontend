@@ -24,6 +24,10 @@
   }
 }
 
+.mobileItems {
+  display: none;
+}
+
 
 .top {
   display: flex;
@@ -87,4 +91,19 @@
 .navigation {
   width: 100%;
   height: auto;
+}
+
+@media (max-width: 950px) {
+  .sidebarContainer {
+    height: 300px;
+    overflow-y: hidden;
+  }
+
+  .navigation {
+    display: none;
+  }
+
+  .mobileItems {
+    display: block;
+  }
 }

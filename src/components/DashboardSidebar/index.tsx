@@ -6,7 +6,6 @@ import {
   useRef,
   useState
 } from 'react';
-import { CSSTransition } from 'react-transition-group';
 import { DropdownMenu } from '../../components/DropdownMenu';
 import { DropdownItem } from '../../components/DropdownItem';
 import { DashboardNavigation } from '../../components/DashboardNavigation';
@@ -18,9 +17,10 @@ import { MdManageSearch } from 'react-icons/md';
 import { IoMdAddCircleOutline } from 'react-icons/io';
 import { RiUserSearchLine } from 'react-icons/ri';
 import { Logo } from '../Logo';
+import { AuthContext } from '../../contexts/AuthContext';
+import { CSSTransition } from 'react-transition-group';
 import Ripples from 'react-ripples';
 import styles from './styles.module.scss';
-import { AuthContext } from '../../contexts/AuthContext';
 
 interface DashboardSidebarProps {
   user?: {
@@ -85,17 +85,6 @@ export function DashboardSidebar({ user, setSelected }: DashboardSidebarProps) {
                 <DropdownItem
                   href=""
                   icon={
-                    <BiUserCircle
-                      style={{ verticalAlign: 'middle', fontSize: '1.3rem' }}
-                    />
-                  }
-                >
-                  Perfil
-                </DropdownItem>
-
-                <DropdownItem
-                  href=""
-                  icon={
                     <BiLogOut
                       style={{ verticalAlign: 'middle', fontSize: '1.3rem' }}
                     />
@@ -104,6 +93,64 @@ export function DashboardSidebar({ user, setSelected }: DashboardSidebarProps) {
                 >
                   Sair
                 </DropdownItem>
+                <div className={styles.mobileItems}>
+                  <DropdownItem
+                    href=""
+                    icon={
+                      <MdManageSearch
+                        style={{ verticalAlign: 'middle', fontSize: '1.3rem' }}
+                      />
+                    }
+                    onClick={() => {
+                      setSelected('allVehicles');
+                      setOpen(false);
+                    }}
+                  >
+                    Visão Geral
+                  </DropdownItem>
+                  <DropdownItem
+                    href=""
+                    icon={
+                      <IoMdAddCircleOutline
+                        style={{ verticalAlign: 'middle', fontSize: '1.3rem' }}
+                      />
+                    }
+                    onClick={() => {
+                      setSelected('addVehicle');
+                      setOpen(false);
+                    }}
+                  >
+                    Adicionar veículo
+                  </DropdownItem>
+                  <DropdownItem
+                    href=""
+                    icon={
+                      <RiUserSearchLine
+                        style={{ verticalAlign: 'middle', fontSize: '1.3rem' }}
+                      />
+                    }
+                    onClick={() => {
+                      setSelected('allUsers');
+                      setOpen(false);
+                    }}
+                  >
+                    Lista de usuários
+                  </DropdownItem>
+                  <DropdownItem
+                    href=""
+                    icon={
+                      <AiOutlineUserAdd
+                        style={{ verticalAlign: 'middle', fontSize: '1.3rem' }}
+                      />
+                    }
+                    onClick={() => {
+                      setSelected('addUser');
+                      setOpen(false);
+                    }}
+                  >
+                    Adicionar usuário
+                  </DropdownItem>
+                </div>
               </DropdownMenu>
             </CSSTransition>
           </div>

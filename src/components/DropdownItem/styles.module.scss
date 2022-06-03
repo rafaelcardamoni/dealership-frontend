@@ -4,23 +4,30 @@
   font-size: .9rem;
   color: var(--gray-400);
   height: 40px;
+  width: 150px;
   display: flex;
   align-items: center;
   transition: background var(--speed);
   padding: .75rem;
   gap: 1rem;
-  width: inherit;
+  border-bottom: var(--border-light);
+
+  &:last-child {
+    border: none;
+  }
 
   span {
     line-height: 1.2rem;
   }
 
-  &:first-child {
-    border-bottom: var(--border-light);
-  }
-
   &:hover {
     background-color: var(--gray-100);
     color: var(--gray-400);
+  }
+}
+
+@media (max-width: 950px) {
+  .menuItem {
+    width: inherit;
   }
 }

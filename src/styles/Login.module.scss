@@ -83,6 +83,8 @@
   }
 
   a {
+    opacity: 0;
+    visibility: hidden;
     font-size: .9rem;
     font-weight: bold;
   }
@@ -137,6 +139,7 @@
     }
   
     button {
+      margin: -1rem auto;
       width: 83%;
     }
 

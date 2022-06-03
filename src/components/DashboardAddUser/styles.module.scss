@@ -51,3 +51,18 @@
     grid-row: 999;
   }
 }
+
+
+@media (max-width: 950px) {
+  .container {
+    width: 90vw;
+    border: none;
+    padding: .5rem;
+  }
+    .inputWrapper {
+      width: 100%;
+      input {
+        width: 70%;
+      }
+    }
+}
