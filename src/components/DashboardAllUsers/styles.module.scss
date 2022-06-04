@@ -1,7 +1,8 @@
 .container {  
   height: 100%;
   width: 100%;
-  
+  overflow-x: scroll; 
+
   table {
     width: 100%;
     border-spacing: 0 0.5rem;
