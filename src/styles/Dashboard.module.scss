@@ -57,6 +57,7 @@
 @media (max-width: 950px) {
   .container {
     display: unset;
+    padding: 0;
 
     .header {
       visibility: hidden;
@@ -76,8 +77,9 @@
       background: white;
 
       .content {
-        margin: .5rem;
+        width: 100vw;
         overflow: unset;
+        margin: 0;
       }
     }
   }
