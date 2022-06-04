@@ -58,57 +58,6 @@ export function SearchFilters({
 
   return (
     <div className={styles.container}>
-      <h4>Marcas</h4>
-
-      {uniqueMakes.slice(0, makeLimit).map(make => {
-        return (
-          <slot key={make} className={styles.slot}>
-            <div>
-              <input
-                type="radio"
-                name={'filter'}
-                value={make.toString()}
-                onChange={event => {
-                  if (event.target.checked === true) {
-                    handleCheckboxFilter(event.target.value.toString());
-                  } else handleCheckboxFilter('');
-                }}
-              />
-              <label htmlFor="filter">
-                {make.toString()}{' '}
-                {`(${carMakeCollection.get(make.toString())})`}
-              </label>
-            </div>
-          </slot>
-        );
-      })}
-
-      {uniqueMakes.length <= limit ? null : (
-        <button
-          onClick={() => {
-            makeLimit == uniqueMakes.length
-              ? setMakeLimit(limit)
-              : setMakeLimit(uniqueMakes.length);
-          }}
-          className={styles.expandOrShrink}
-        >
-          <span>
-            <i>
-              {makeLimit == limit ? (
-                <IoMdAddCircleOutline
-                  style={{ verticalAlign: 'middle', marginRight: '5px' }}
-                />
-              ) : (
-                <GrSubtractCircle
-                  style={{ verticalAlign: 'middle', marginRight: '5px' }}
-                />
-              )}
-            </i>
-            ver {makeLimit == limit ? 'mais' : 'menos'}
-          </span>
-        </button>
-      )}
-
       <h4>Modelos</h4>
 
       {uniqueModels.slice(0, modelLimit).map(model => {
